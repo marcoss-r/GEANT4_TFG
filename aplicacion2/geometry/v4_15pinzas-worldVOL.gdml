@@ -1,0 +1,463 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+  <define>
+    <constant name="HALFPI" value="pi/2"/>
+  <constant name="PI" value="1*pi"/>
+  <constant name="TWOPI" value="2*pi"/>
+  <rotation name="identity" x="0" y="0" z="0"/>
+  </define>
+<materials/>
+<solids>
+    <box name="WorldBox" x="40000.0" y="40000.0" z="40000.0" lunit="mm"/>
+  <box name="Box001" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse">
+      <first ref="GDMLTube"/>
+    <second ref="Box"/>
+    <position name="P-GDMLBox_Box1" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box1" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse001">
+      <first ref="Box001"/>
+    <second ref="Fuse"/>
+    <position name="P-Fuse2" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse2" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box003" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube001" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box002" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse002">
+      <first ref="GDMLTube001"/>
+    <second ref="Box002"/>
+    <position name="P-GDMLBox_Box0024" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box0023" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse003">
+      <first ref="Box003"/>
+    <second ref="Fuse002"/>
+    <position name="P-Fuse0025" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse0024" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box005" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube002" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box004" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse004">
+      <first ref="GDMLTube002"/>
+    <second ref="Box004"/>
+    <position name="P-GDMLBox_Box0047" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box0045" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse005">
+      <first ref="Box005"/>
+    <second ref="Fuse004"/>
+    <position name="P-Fuse0048" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse0046" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box007" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube003" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box006" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse006">
+      <first ref="GDMLTube003"/>
+    <second ref="Box006"/>
+    <position name="P-GDMLBox_Box00610" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box0067" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse007">
+      <first ref="Box007"/>
+    <second ref="Fuse006"/>
+    <position name="P-Fuse00611" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse0068" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box009" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube004" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box008" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse008">
+      <first ref="GDMLTube004"/>
+    <second ref="Box008"/>
+    <position name="P-GDMLBox_Box00813" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box0089" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse009">
+      <first ref="Box009"/>
+    <second ref="Fuse008"/>
+    <position name="P-Fuse00814" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse00810" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box011" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube005" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box010" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse010">
+      <first ref="GDMLTube005"/>
+    <second ref="Box010"/>
+    <position name="P-GDMLBox_Box01016" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box01011" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse011">
+      <first ref="Box011"/>
+    <second ref="Fuse010"/>
+    <position name="P-Fuse01017" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse01012" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box013" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube006" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box012" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse012">
+      <first ref="GDMLTube006"/>
+    <second ref="Box012"/>
+    <position name="P-GDMLBox_Box01219" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box01213" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse013">
+      <first ref="Box013"/>
+    <second ref="Fuse012"/>
+    <position name="P-Fuse01220" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse01214" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box015" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube007" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box014" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse014">
+      <first ref="GDMLTube007"/>
+    <second ref="Box014"/>
+    <position name="P-GDMLBox_Box01422" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box01415" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse015">
+      <first ref="Box015"/>
+    <second ref="Fuse014"/>
+    <position name="P-Fuse01423" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse01416" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box017" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube008" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box016" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse016">
+      <first ref="GDMLTube008"/>
+    <second ref="Box016"/>
+    <position name="P-GDMLBox_Box01625" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box01617" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse017">
+      <first ref="Box017"/>
+    <second ref="Fuse016"/>
+    <position name="P-Fuse01626" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse01618" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box019" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube009" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box018" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse018">
+      <first ref="GDMLTube009"/>
+    <second ref="Box018"/>
+    <position name="P-GDMLBox_Box01828" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box01819" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse019">
+      <first ref="Box019"/>
+    <second ref="Fuse018"/>
+    <position name="P-Fuse01829" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse01820" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box021" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube010" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box020" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse020">
+      <first ref="GDMLTube010"/>
+    <second ref="Box020"/>
+    <position name="P-GDMLBox_Box02031" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box02021" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse021">
+      <first ref="Box021"/>
+    <second ref="Fuse020"/>
+    <position name="P-Fuse02032" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse02022" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box023" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube011" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box022" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse022">
+      <first ref="GDMLTube011"/>
+    <second ref="Box022"/>
+    <position name="P-GDMLBox_Box02234" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box02223" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse023">
+      <first ref="Box023"/>
+    <second ref="Fuse022"/>
+    <position name="P-Fuse02235" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse02224" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box025" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube012" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box024" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse024">
+      <first ref="GDMLTube012"/>
+    <second ref="Box024"/>
+    <position name="P-GDMLBox_Box02437" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box02425" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse025">
+      <first ref="Box025"/>
+    <second ref="Fuse024"/>
+    <position name="P-Fuse02438" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse02426" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box027" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube013" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box026" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse026">
+      <first ref="GDMLTube013"/>
+    <second ref="Box026"/>
+    <position name="P-GDMLBox_Box02640" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box02627" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse027">
+      <first ref="Box027"/>
+    <second ref="Fuse026"/>
+    <position name="P-Fuse02641" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse02628" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box029" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <tube name="GDMLTube014" rmin="127.0" rmax="178.0" startphi="0.0" deltaphi="360.0" aunit="deg" z="2044.0" lunit="mm"/>
+  <box name="Box028" x="100.0" y="2044.0" z="160.0" lunit="mm"/>
+  <union name="Fuse028">
+      <first ref="GDMLTube014"/>
+    <second ref="Box028"/>
+    <position name="P-GDMLBox_Box02843" unit="mm" x="200.00000000000006"/>
+    <rotation name="R-GDMLBox_Box02829" unit="deg" x="-90.0"/>
+    </union>
+  <union name="Fuse029">
+      <first ref="Box029"/>
+    <second ref="Fuse028"/>
+    <position name="P-Fuse02844" unit="mm" x="200.0"/>
+    <rotation name="R-Fuse02830" unit="deg" x="90.0"/>
+    </union>
+  <box name="Box030" x="20.0" y="20.0" z="0.5" lunit="m"/>
+  <box name="Box031" x="20.0" y="20.0" z="0.3" lunit="m"/>
+  <box name="Box032" x="20.0" y="20.0" z="0.3" lunit="m"/>
+  <box name="Box033" x="20.0" y="0.25" z="10.6" lunit="m"/>
+  <box name="Box034" x="20.0" y="20.0" z="0.5" lunit="m"/>
+  <box name="Box035" x="20.0" y="0.25" z="10.6" lunit="m"/>
+  </solids>
+<structure>
+    <volume name="pinza">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse001"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza001">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse003"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza002">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse005"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza003">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse007"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza004">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse009"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza005">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse011"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza006">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse013"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza007">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse015"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza008">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse017"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza009">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse019"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza010">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse021"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza011">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse023"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza012">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse025"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza013">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse027"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="pinza014">
+      <materialref ref="G4_Pb"/>
+    <solidref ref="Fuse029"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="suelo">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box030"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="suelo1">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box031"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="suelo2">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box032"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="pared1">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box033"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="suelo3">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box034"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="pared2">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box035"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="worldVOL">
+      <materialref ref="G4_AIR"/>
+    <solidref ref="WorldBox"/>
+    <physvol name="PV_pinza">
+        <volumeref ref="pinza"/>
+      <position name="P-pinza3" unit="mm" x="-200.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza001">
+        <volumeref ref="pinza001"/>
+      <position name="P-pinza0016" unit="mm" x="300.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza002">
+        <volumeref ref="pinza002"/>
+      <position name="P-pinza0029" unit="mm" x="800.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza003">
+        <volumeref ref="pinza003"/>
+      <position name="P-pinza00312" unit="mm" x="1300.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza004">
+        <volumeref ref="pinza004"/>
+      <position name="P-pinza00415" unit="mm" x="1800.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza005">
+        <volumeref ref="pinza005"/>
+      <position name="P-pinza00518" unit="mm" x="2300.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza006">
+        <volumeref ref="pinza006"/>
+      <position name="P-pinza00621" unit="mm" x="2800.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza007">
+        <volumeref ref="pinza007"/>
+      <position name="P-pinza00724" unit="mm" x="3300.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza008">
+        <volumeref ref="pinza008"/>
+      <position name="P-pinza00827" unit="mm" x="-700.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza009">
+        <volumeref ref="pinza009"/>
+      <position name="P-pinza00930" unit="mm" x="-1200.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza010">
+        <volumeref ref="pinza010"/>
+      <position name="P-pinza01033" unit="mm" x="-1700.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza011">
+        <volumeref ref="pinza011"/>
+      <position name="P-pinza01136" unit="mm" x="-2200.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza012">
+        <volumeref ref="pinza012"/>
+      <position name="P-pinza01239" unit="mm" x="-2700.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza013">
+        <volumeref ref="pinza013"/>
+      <position name="P-pinza01342" unit="mm" x="-3200.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pinza014">
+        <volumeref ref="pinza014"/>
+      <position name="P-pinza01445" unit="mm" x="-3700.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_suelo">
+        <volumeref ref="suelo"/>
+      <position name="P-suelo46" unit="mm" z="-428.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_suelo1">
+        <volumeref ref="suelo1"/>
+      <position name="P-suelo147" unit="mm" z="2972.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_suelo2">
+        <volumeref ref="suelo2"/>
+      <position name="P-suelo248" unit="mm" z="6272.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pared1">
+        <volumeref ref="pared1"/>
+      <position name="P-pared149" unit="mm" y="9875.0" z="4622.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_suelo3">
+        <volumeref ref="suelo3"/>
+      <position name="P-suelo350" unit="mm" z="9672.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_pared2">
+        <volumeref ref="pared2"/>
+      <position name="P-pared251" unit="mm" y="-9875.0" z="4622.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    </volume>
+  </structure>
+<setup name="Default" version="1.0">
+    <world ref="worldVOL"/>
+  </setup>
+</gdml>

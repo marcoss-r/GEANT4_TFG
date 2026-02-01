@@ -1,0 +1,10 @@
+^C:\USERS\MARCO\GEANT4\APLICACIONES\APLICACION-1\BUILD\CMAKEFILES\30C8FB6CB03C088106B21EB6521315C8\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/marco/GEANT4/Aplicaciones/Aplicacion-1 -BC:/Users/marco/GEANT4/Aplicaciones/Aplicacion-1/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/marco/GEANT4/Aplicaciones/Aplicacion-1/build/prueba.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
