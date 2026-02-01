@@ -25,15 +25,15 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Add the executable, use our local headers, and link it to the Geant4 libraries
 #
-add_executable(Aplicacion-1 main.cc ${sources} ${headers})
-target_include_directories(Aplicacion-1 PRIVATE include)
-target_link_libraries(Aplicacion-1 PRIVATE ${Geant4_LIBRARIES})
+add_executable(aplicacion3 main.cc ${sources} ${headers})
+target_include_directories(aplicacion3 PRIVATE include)
+target_link_libraries(aplicacion3 PRIVATE ${Geant4_LIBRARIES})
 
 #-----------------------------------------------------------------------------
 # Copy macro files into build/mac_files for better organization
 #-----------------------------------------------------------------------------
 
-set(APLICACION1_SCRIPTS
+set(APLICACION3_SCRIPTS
   init_vis.mac
   init_vis2.mac
   # run1.mac
@@ -41,7 +41,7 @@ set(APLICACION1_SCRIPTS
   # vis.mac
 )
 
-foreach(_script ${APLICACION1_SCRIPTS})
+foreach(_script ${APLICACION3_SCRIPTS})
   configure_file(
     ${PROJECT_SOURCE_DIR}/mac_files/${_script}
     ${PROJECT_BINARY_DIR}/mac_files/${_script}

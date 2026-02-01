@@ -25,9 +25,9 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Add the executable, use our local headers, and link it to the Geant4 libraries
 #
-add_executable(Aplicacion-1 main.cc ${sources} ${headers})
-target_include_directories(Aplicacion-1 PRIVATE include)
-target_link_libraries(Aplicacion-1 PRIVATE ${Geant4_LIBRARIES})
+add_executable(aplicacion1 main.cc ${sources} ${headers})
+target_include_directories(aplicacion1 PRIVATE include)
+target_link_libraries(aplicacion1 PRIVATE ${Geant4_LIBRARIES})
 
 #-----------------------------------------------------------------------------
 # Copy macro files into build/mac_files for better organization
