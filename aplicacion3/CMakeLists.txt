@@ -36,7 +36,7 @@ target_link_libraries(aplicacion3 PRIVATE ${Geant4_LIBRARIES})
 set(APLICACION3_SCRIPTS
   init_vis.mac
   init_vis2.mac
-  # run1.mac
+  run_batch.mac
   # run2.mac
   # vis.mac
 )
