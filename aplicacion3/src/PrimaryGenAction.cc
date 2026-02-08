@@ -8,22 +8,35 @@
 #include <sstream>
 //Para mensajes de error
 #include <iostream>
+//Inclusión de mutex para MT
+#include "G4AutoLock.hh"
 
 
 /*Aquí se define la generación primaria, primero, con el constructor, definimos la "pistola" que
 lanzará nuestras partículas. Primero creamos la pistola, definimos qué partícula usamos, definimos
 el vector velocidad que llevarán las partículas, su energía y por último la posición inicial */
 
-PrimaryGenAction::PrimaryGenAction()
-    : fCurrentParticle(0)
-    {
+//Definición de variables static
+std::vector<ParticleData> PrimaryGenAction::fParticleList;
+G4bool PrimaryGenAction::fIsLoaded = false;
+
+static G4Mutex csvMutex = G4MUTEX_INITIALIZER;
+
+PrimaryGenAction::PrimaryGenAction(){
     //Creación de la pistola de partículas
     fparticleGun = new G4ParticleGun(1);
-    //Carga de partículas desde el archivo CSV
-    LoadParticlesFromCSV("../../particlegen/input_particles.csv");
     
-    //Debugging
-    G4cout << "Loaded " << fParticleList.size() << " particles from CSV" << G4endl;
+    G4AutoLock lock(&csvMutex);
+    if(!fIsLoaded){
+
+        //Carga de partículas desde el archivo CSV
+        LoadParticlesFromCSV("../../particlegen/input_particles.csv");
+        fIsLoaded = true;
+        //Debugging
+        G4cout << "Loaded " << fParticleList.size() << " particles from CSV" << G4endl;
+    }
+    
+    
 };
 
 PrimaryGenAction::~PrimaryGenAction(){
@@ -118,7 +131,9 @@ void PrimaryGenAction::GeneratePrimaries(G4Event* anEvent){
     }
     
     //Obtener la partícula actual
-    size_t index = fCurrentParticle % fParticleList.size();
+    G4int eventID = anEvent->GetEventID();
+
+    size_t index = eventID % fParticleList.size();
 
     ParticleData& particle = fParticleList[index];
     
@@ -149,7 +164,7 @@ void PrimaryGenAction::GeneratePrimaries(G4Event* anEvent){
     fparticleGun->SetParticleMomentumDirection(G4ThreeVector(particle.dir_x, particle.dir_y, particle.dir_z));
     
     G4cout << "═══════════════════════════════════════" << G4endl;
-    G4cout << "EVENT " << fCurrentParticle << G4endl;
+    G4cout << "EVENT " << eventID << G4endl;
     G4cout << "  Particle: " << particle.particleName << G4endl;
     G4cout << "  Energy: " << particle.energy << " MeV" << G4endl;
     G4cout << "  Position: (" << particle.pos_x << ", " 
@@ -162,6 +177,4 @@ void PrimaryGenAction::GeneratePrimaries(G4Event* anEvent){
     //Generar el vértice primario
     fparticleGun->GeneratePrimaryVertex(anEvent);
     
-    //Incrementar el contador para la siguiente partícula
-    fCurrentParticle++;
 }

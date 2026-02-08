@@ -3,27 +3,36 @@
 #include "G4SystemOfUnits.hh"
 #include "G4RunManager.hh"
 #include <iomanip>
+#include "G4AutoLock.hh"
+
+
+//Definición de variables estáticas
+std::ofstream SensitiveDetector::fOutputFile;
+G4bool SensitiveDetector::fFileInitialized = false;
+
+//Definición de mutex para manejo de archivo en MT
+static G4Mutex fileMutex = G4MUTEX_INITIALIZER;
 
 //Constructor
 SensitiveDetector::SensitiveDetector(const G4String& name) : G4VSensitiveDetector(name), fHasEntry(false),
       fInitialEnergy(0), fTotalEnergyDeposit(0), fEventID(-1){
 
-    //Abrir archivo CSV en modo agregar
-    fOutputFile.open("detector_hits.csv", std::ios::app);
     
-    //Si está vacío, escribir encabezado
-    fOutputFile.seekp(0, std::ios::end);
-    if(fOutputFile.tellp() == 0){
+    G4AutoLock lock(&fileMutex);
+    if(!fFileInitialized){
+        //Abrir archivo CSV en modo agregar
+        fOutputFile.open("detector_hits.csv", std::ios::app);
+        //Esscritura de cabecera
         fOutputFile << "EventID,ParticleName,Energy_MeV,PosX_m,PosY_m,PosZ_m,"
                     << "Theta_deg,Phi_deg,MomX,MomY,MomZ\n";
+        fFileInitialized = true;
+        G4cout << "CSV file initialized" << G4endl;
     }
 }
 
 //Destructor
 SensitiveDetector::~SensitiveDetector(){
-    if(fOutputFile.is_open()){
-        fOutputFile.close();
-    }
+
 }
 
 //Método de inicialización llamado al inicio de cada evento
@@ -83,7 +92,9 @@ void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce)
     G4double y = fEntryPosition.y() / m;
     G4double z = fEntryPosition.z() / m;
     
-    //Escritura CSV
+    //Escritura CSV protegida por mutex para MT
+    G4AutoLock lock(&fileMutex);
+    
     fOutputFile << fEventID << ","
                 << fParticleName << ","
                 << std::fixed << std::setprecision(6)

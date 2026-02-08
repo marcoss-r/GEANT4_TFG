@@ -31,7 +31,9 @@ private:
     G4ThreeVector fEntryMomentum;     
     G4int fEventID;                   
 
-    std::ofstream fOutputFile;
+    //Variables estáticas para manejo de archivo CSV y MT
+    static std::ofstream fOutputFile;
+    static G4bool fFileInitialized;
 };
 
 #endif

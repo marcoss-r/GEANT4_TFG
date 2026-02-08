@@ -33,9 +33,9 @@ class PrimaryGenAction : public G4VUserPrimaryGeneratorAction {
   //Clase de Geant4 que se encarga de generar partículas
   G4ParticleGun* fparticleGun;
   //Vector que guarda la estructura definida llamado fParticleList
-  std::vector<ParticleData> fParticleList;
-  //Índice para seguir la partícula actual en el vector
-  size_t fCurrentParticle;
+  static std::vector<ParticleData> fParticleList;
+  //Variable para asegurarnos de que los datos se cargan solo una vez con MT
+  static G4bool fIsLoaded; 
     
   void LoadParticlesFromCSV(const std::string& filename);
   };
