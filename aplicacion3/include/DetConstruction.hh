@@ -1,8 +1,17 @@
+#ifndef DETCONSTRUCTION_HH
+#define DETCONSTRUCTION_HH
 #include "G4VUserDetectorConstruction.hh"
 
-namespace prueba{
-    class DetConstruction : public G4VUserDetectorConstruction{
+
+class DetConstruction : public G4VUserDetectorConstruction{
     public:
-        G4VPhysicalVolume* Construct();
+
+        DetConstruction();
+        ~DetConstruction() override;    
+
+        G4VPhysicalVolume* Construct() override;
+
+        void ConstructSDandField() override;
     };
-}
+
+#endif

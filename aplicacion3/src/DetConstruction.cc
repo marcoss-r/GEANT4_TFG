@@ -6,65 +6,84 @@
 #include "G4LogicalVolume.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4NistManager.hh"
+#include "SensitiveDetector.hh"
+#include "G4SDManager.hh"
 
+DetConstruction::DetConstruction(){
+}
 
-namespace prueba{
+DetConstruction::~DetConstruction(){
+}
 
-    G4VPhysicalVolume* DetConstruction::Construct(){
+G4VPhysicalVolume* DetConstruction::Construct(){
 
-        //solid then logic then phys
+    //solid then logic then phys
 
-        //Volumen sólido
-        G4Box *solidWorld = new G4Box("solidWorld",5 * m, 5 * m, 5 * m);
+    //Volumen sólido
+    G4Box *solidWorld = new G4Box("solidWorld",10 * m, 100 * m, 10 * m);
 
-        //Obtenemos el material de nuestro mundo, en este caso aire
-        //Vacío=G4_Galactic
-        G4Material *vacuum = G4NistManager::Instance()->FindOrBuildMaterial("G4_AIR");
+    //Obtenemos el material de nuestro mundo, en este caso aire
+    //Vacío=G4_Galactic
+    G4Material *vacuum = G4NistManager::Instance()->FindOrBuildMaterial("G4_AIR");
 
-        //Construimos el volumen lógico a partir de nuestro material y el volumn sólido
-        G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld,vacuum,"logicWorld");
+    //Construimos el volumen lógico a partir de nuestro material y el volumn sólido
+    G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld,vacuum,"logicWorld");
 
-        //Construimos el volumen físico, 
-        /*
-        El primero de los campos es la rotación
-        El segundo de los campos es la posición
-        Volumen lógico
-        Nombre
-        Madre (en este caso no tiene madre porque es la madre y el mundo es la madre de todo)
-        Many?
-        Número de copias
-        */
-        G4VPhysicalVolume *physWorld = new G4PVPlacement(nullptr,G4ThreeVector(),logicWorld,
+    //Construimos el volumen físico, 
+    /*
+    El primero de los campos es la rotación
+    El segundo de los campos es la posición
+    Volumen lógico
+    Nombre
+    Madre (en este caso no tiene madre porque es la madre y el mundo es la madre de todo)
+    Many?
+    Número de copias
+    */
+    G4VPhysicalVolume *physWorld = new G4PVPlacement(nullptr,G4ThreeVector(),logicWorld,
         "physWorld",nullptr,false,0);
 
-        //add a aluminum detector
-        G4Material *aluminum =G4NistManager::Instance()->FindOrBuildMaterial("G4_Al");
+    //add a aluminum detector
+    G4Material *aluminum =G4NistManager::Instance()->FindOrBuildMaterial("G4_Al");
 
-        G4Box *solidDetector = new G4Box("solidDetector",3 * m, 10 * cm,  3 * m);
+    G4Box *solidDetector = new G4Box("solidDetector", 3 * m, 10 * cm,  3 * m);
 
-        G4LogicalVolume *logicDetector = new G4LogicalVolume(solidDetector,aluminum,"logicDetector");
+    G4LogicalVolume *logicDetector = new G4LogicalVolume(solidDetector,aluminum,"logicDetector");
 
-        //Por algún motivo extraño no hay que definir una variable con el volumen físico
+    //Por algún motivo extraño no hay que definir una variable con el volumen físico
 
-        new G4PVPlacement(nullptr,G4ThreeVector(0,-2.3*m,0*m),logicDetector,"physDetector",logicWorld,false,0);
-
-
-
-        G4Material *centelleador =G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
-
-        G4Box *solidDetector2 = new G4Box("solidDetector2",3 * m, 10 * cm,  3 * m);
-
-        G4LogicalVolume *logicDetector2 = new G4LogicalVolume(solidDetector2,centelleador,"logicDetector2");
-
-        //Por algún motivo extraño no hay que definir una variable con el volumen físico
-
-        new G4PVPlacement(nullptr,G4ThreeVector(0,-1.8*m,0*m),logicDetector2,"physDetector2",logicWorld,false,0);
-
-
-        return physWorld;
+    new G4PVPlacement(nullptr,G4ThreeVector(0,-92.3*m,0*m),logicDetector,"physDetector",logicWorld,false,0);
 
 
 
-    }
+    G4Material *centelleador =G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
+
+    G4Box *solidDetector2 = new G4Box("solidDetector2", 3 * m, 10 * cm,  3 * m);
+
+    G4LogicalVolume *logicDetector2 = new G4LogicalVolume(solidDetector2,centelleador,"logicDetector2");
+
+    //Por algún motivo extraño no hay que definir una variable con el volumen físico
+
+    new G4PVPlacement(nullptr,G4ThreeVector(0,-91.8*m,0*m),logicDetector2,"physDetector2",logicWorld,false,0);
+
+
+    return physWorld;
+
+
 
 }
+
+void DetConstruction::ConstructSDandField(){
+    
+    //Creación de sensitive detector
+    SensitiveDetector* sensitiveDetector = new SensitiveDetector("SensitiveDetector");
+    
+    // Registro en el manager
+    G4SDManager::GetSDMpointer()->AddNewDetector(sensitiveDetector);
+    
+    //Asignación del sensitive detector a los volúmenes lógicos correspondientes
+    SetSensitiveDetector("logicDetector", sensitiveDetector);
+
+    //Debug
+    G4cout << "Sensitive Detector registered and assigned" << G4endl;
+}
+

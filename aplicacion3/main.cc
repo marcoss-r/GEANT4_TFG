@@ -11,8 +11,6 @@
 #include "G4UIExecutive.hh"
 #include "G4VisExecutive.hh"
 
-using namespace prueba;
-
 int main(int argc, char** argv){
 
     G4UIExecutive* ui = nullptr;
