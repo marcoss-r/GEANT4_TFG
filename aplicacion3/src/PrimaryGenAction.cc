@@ -24,7 +24,7 @@ PrimaryGenAction::PrimaryGenAction()
     
     //Debugging
     G4cout << "Loaded " << fParticleList.size() << " particles from CSV" << G4endl;
-    };
+};
 
 PrimaryGenAction::~PrimaryGenAction(){
     delete fparticleGun;
@@ -148,9 +148,20 @@ void PrimaryGenAction::GeneratePrimaries(G4Event* anEvent){
     //Dirección
     fparticleGun->SetParticleMomentumDirection(G4ThreeVector(particle.dir_x, particle.dir_y, particle.dir_z));
     
+    G4cout << "═══════════════════════════════════════" << G4endl;
+    G4cout << "EVENT " << fCurrentParticle << G4endl;
+    G4cout << "  Particle: " << particle.particleName << G4endl;
+    G4cout << "  Energy: " << particle.energy << " MeV" << G4endl;
+    G4cout << "  Position: (" << particle.pos_x << ", " 
+           << particle.pos_y << ", " << particle.pos_z << ") m" << G4endl;
+    G4cout << "  Direction: (" << particle.dir_x << ", " 
+           << particle.dir_y << ", " << particle.dir_z << ")" << G4endl;
+    G4cout << "═══════════════════════════════════════" << G4endl;
+
+
     //Generar el vértice primario
     fparticleGun->GeneratePrimaryVertex(anEvent);
     
-    // 8. Incrementar el contador para la siguiente partícula
+    //Incrementar el contador para la siguiente partícula
     fCurrentParticle++;
 }
