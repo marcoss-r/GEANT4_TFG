@@ -30,7 +30,7 @@ PrimaryGenAction::PrimaryGenAction(){
     if(!fIsLoaded){
 
         //Carga de partículas desde el archivo CSV
-        LoadParticlesFromCSV("../../particlegen/input_particles.csv");
+        LoadParticlesFromCSV("../../particlegen/input/input_particles_20MeV_neutron.csv");
         fIsLoaded = true;
         //Debugging
         G4cout << "Loaded " << fParticleList.size() << " particles from CSV" << G4endl;
