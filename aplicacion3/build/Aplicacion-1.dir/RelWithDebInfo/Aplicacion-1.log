@@ -1,8 +1,0 @@
-﻿  Building Custom Rule C:/Users/marco/GEANT4/Aplicaciones/Aplicacion-1/CMakeLists.txt
-  main.cc
-  ActionInit.cc
-  DetConstruction.cc
-  PrimaryGenAction.cc
-  SteppingAction.cc
-  Generando código...
-  Aplicacion-1.vcxproj -> C:\Users\marco\GEANT4\Aplicaciones\Aplicacion-1\build\RelWithDebInfo\Aplicacion-1.exe

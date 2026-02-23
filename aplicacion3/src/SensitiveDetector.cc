@@ -21,7 +21,7 @@ SensitiveDetector::SensitiveDetector(const G4String& name) : G4VSensitiveDetecto
     G4AutoLock lock(&fileMutex);
     if(!fFileInitialized){
         //Abrir archivo CSV en modo agregar
-        fOutputFile.open("detector_hits.csv", std::ios::app);
+        fOutputFile.open("../output_neutron/output_particles_20MeV", std::ios::app);
         //Esscritura de cabecera
         fOutputFile << "EventID,ParticleName,Energy_MeV,PosX_m,PosY_m,PosZ_m,"
                     << "Theta_deg,Phi_deg,MomX,MomY,MomZ\n";
