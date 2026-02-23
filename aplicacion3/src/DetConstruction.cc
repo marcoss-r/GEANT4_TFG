@@ -24,10 +24,10 @@ G4VPhysicalVolume* DetConstruction::Construct(){
 
     //Obtenemos el material de nuestro mundo, en este caso aire
     //Vacío=G4_Galactic
-    G4Material *vacuum = G4NistManager::Instance()->FindOrBuildMaterial("G4_AIR");
+    G4Material *air = G4NistManager::Instance()->FindOrBuildMaterial("G4_AIR");
 
     //Construimos el volumen lógico a partir de nuestro material y el volumn sólido
-    G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld,vacuum,"logicWorld");
+    G4LogicalVolume *logicWorld = new G4LogicalVolume(solidWorld,air,"logicWorld");
 
     //Construimos el volumen físico, 
     /*
@@ -51,9 +51,10 @@ G4VPhysicalVolume* DetConstruction::Construct(){
 
     //Por algún motivo extraño no hay que definir una variable con el volumen físico
 
-    new G4PVPlacement(nullptr,G4ThreeVector(0,-92.3*m,0*m),logicDetector,"physDetector",logicWorld,false,0);
+    new G4PVPlacement(nullptr,G4ThreeVector(0,-92.1*m,0*m),logicDetector,"physDetector",logicWorld,false,0);
 
 
+    /*
 
     G4Material *centelleador =G4NistManager::Instance()->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE");
 
@@ -64,7 +65,7 @@ G4VPhysicalVolume* DetConstruction::Construct(){
     //Por algún motivo extraño no hay que definir una variable con el volumen físico
 
     new G4PVPlacement(nullptr,G4ThreeVector(0,-91.8*m,0*m),logicDetector2,"physDetector2",logicWorld,false,0);
-
+    */
 
     return physWorld;
 
