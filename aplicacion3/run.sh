@@ -1,49 +1,60 @@
 #!/bin/bash
 
-# Carpetas
-INPUT_DIR="../particlegen/input"
-OUTPUT_DIR="../particlegen/output"
-SRC_DIR="./src"
-BUILD_DIR="build"
+# Obtener directorio absoluto del proyecto
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
+
+# Carpetas (ABSOLUTAS)
+INPUT_DIR="$PROJECT_DIR/../particlegen/input"
+OUTPUT_DIR="$PROJECT_DIR/../particlegen/output"
+SRC_DIR="$PROJECT_DIR/src"
+BUILD_DIR="$PROJECT_DIR/build"
 
 # Archivos a modificar
 PRIMARY_FILE="$SRC_DIR/PrimaryGenAction.cc"
 DETECTOR_FILE="$SRC_DIR/SensitiveDetector.cc"
 
+# Crear carpeta output si no existe
+mkdir -p "$OUTPUT_DIR"
+
 # Obtener todos los CSVs de input
 for INPUT_FILE in "$INPUT_DIR"/*.csv; do
     
-    # Extraer nombre base (ej: input_particles_20MeV_neutron.csv)
     BASENAME=$(basename "$INPUT_FILE")
     
-    # Generar nombre de salida (ej: output_particles_20MeV.csv)
+    # Generar nombre de salida
     OUTPUT_NAME="${BASENAME/input/output}"
     OUTPUT_FILE="$OUTPUT_DIR/$OUTPUT_NAME"
     
     echo "Procesando: $BASENAME"
+    echo "  Input:  $INPUT_FILE"
+    echo "  Output: $OUTPUT_FILE"
     
-    # Modificar PrimaryGenAction.cc
+    # Modificar PrimaryGenAction.cc con ruta ABSOLUTA
     sed -i "s|LoadParticlesFromCSV(\".*\");|LoadParticlesFromCSV(\"$INPUT_FILE\");|g" "$PRIMARY_FILE"
     
-    # Modificar SensitiveDetector.cc
+    # Modificar SensitiveDetector.cc con ruta ABSOLUTA
     sed -i "s|fOutputFile.open(\".*\", std::ios::app);|fOutputFile.open(\"$OUTPUT_FILE\", std::ios::app);|g" "$DETECTOR_FILE"
     
     # Limpiar y compilar
+    echo "  Compilando..."
     rm -rf "$BUILD_DIR"
     mkdir "$BUILD_DIR"
     cd "$BUILD_DIR"
     
-    cmake .. > /dev/null 2>&1
-    make -j4 > /dev/null 2>&1
+    cmake .. > /dev/null
+    make -j4 > /dev/null
     
     # Ejecutar
-    ./aplicacion3 ./mac_files/run_batch.mac > /dev/null 2>&1
+    echo "  Ejecutando..."
+    ./aplicacion3 ../mac_files/run_batch.mac
     
-    cd ..
+    cd "$PROJECT_DIR"
     
-    echo "Completado: $OUTPUT_NAME"
+    echo "  Completado"
     echo ""
     
 done
 
 echo "Todas las simulaciones terminadas"
+echo "Archivos en: $OUTPUT_DIR"
+ls -lh "$OUTPUT_DIR"
