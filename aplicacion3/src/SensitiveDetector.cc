@@ -21,7 +21,7 @@ SensitiveDetector::SensitiveDetector(const G4String& name) : G4VSensitiveDetecto
     G4AutoLock lock(&fileMutex);
     if(!fFileInitialized){
         //Abrir archivo CSV en modo agregar
-        fOutputFile.open("../output_neutron/output_particles_20MeV", std::ios::app);
+        fOutputFile.open("/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/../particlegen/output/output_particles_971MeV_proton.csv", std::ios::app);
         //Esscritura de cabecera
         fOutputFile << "EventID,ParticleName,Energy_MeV,PosX_m,PosY_m,PosZ_m,"
                     << "Theta_deg,Phi_deg,MomX,MomY,MomZ\n";
