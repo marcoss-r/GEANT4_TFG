@@ -1,0 +1,20 @@
+/vis/open OGL
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 30 20
+/vis/scene/add/trajectories smooth
+
+# --- aquí añadimos el modelo de trayectorias por partícula ---
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/default/setLineWidth 2
+
+# Opcional: colores personalizados por partícula
+/vis/modeling/trajectories/drawByParticleID-0/set e- red
+/vis/modeling/trajectories/drawByParticleID-0/set e+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set proton green
+/vis/modeling/trajectories/drawByParticleID-0/set gamma yellow
+/vis/modeling/trajectories/drawByParticleID-0/set neutron magenta
+
+
+/vis/scene/endOfEventAction accumulate
+/run/initialize
+/run/beamOn 1
