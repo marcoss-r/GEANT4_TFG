@@ -10,7 +10,7 @@ The output was:
 
 Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
 
-The C compiler identification is GNU, found in "/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/3.16.9/CompilerIdC/a.out"
+The C compiler identification is GNU, found in "/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/3.16.9/CompilerIdC/a.out"
 
 Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
 Compiler: /usr/bin/c++ 
@@ -23,29 +23,29 @@ The output was:
 
 Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.out"
 
-The CXX compiler identification is GNU, found in "/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/3.16.9/CompilerIdCXX/a.out"
+The CXX compiler identification is GNU, found in "/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/3.16.9/CompilerIdCXX/a.out"
 
 Determining if the C compiler works passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_5579e/fast && /usr/bin/make  -f CMakeFiles/cmTC_5579e.dir/build.make CMakeFiles/cmTC_5579e.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5579e.dir/testCCompiler.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_5579e.dir/testCCompiler.c.o   -c /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_5579e
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5579e.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_5579e.dir/testCCompiler.c.o  -o cmTC_5579e 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_fd214/fast && /usr/bin/make  -f CMakeFiles/cmTC_fd214.dir/build.make CMakeFiles/cmTC_fd214.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fd214.dir/testCCompiler.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_fd214.dir/testCCompiler.c.o   -c /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_fd214
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd214.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_fd214.dir/testCCompiler.c.o  -o cmTC_fd214 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Detecting C compiler ABI info compiled with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_0560b/fast && /usr/bin/make  -f CMakeFiles/cmTC_0560b.dir/build.make CMakeFiles/cmTC_0560b.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o
-/usr/bin/cc   -v -o CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c
+Run Build Command(s):/usr/bin/make cmTC_f818e/fast && /usr/bin/make  -f CMakeFiles/cmTC_f818e.dir/build.make CMakeFiles/cmTC_f818e.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o
+/usr/bin/cc   -v -o CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 OFFLOAD_TARGET_NAMES=nvptx-none
@@ -54,8 +54,8 @@ Target: x86_64-linux-gnu
 Configured with: ../src/configure -v --with-pkgversion='Ubuntu 8.4.0-1ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
 gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/8/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/cc2054kQ.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/8/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccgw3Gvl.s
 GNU C17 (Ubuntu 8.4.0-1ubuntu1~18.04) version 8.4.0 (x86_64-linux-gnu)
 	compiled by GNU C version 8.4.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
 
@@ -75,15 +75,15 @@ GNU C17 (Ubuntu 8.4.0-1ubuntu1~18.04) version 8.4.0 (x86_64-linux-gnu)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: ce3422c0279d38edb238b376a46341f1
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
- as -v --64 -o CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o /tmp/cc2054kQ.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o /tmp/ccgw3Gvl.s
 GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
-Linking C executable cmTC_0560b
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0560b.dir/link.txt --verbose=1
-/usr/bin/cc     -v CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o  -o cmTC_0560b 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+Linking C executable cmTC_f818e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f818e.dir/link.txt --verbose=1
+/usr/bin/cc     -v CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o  -o cmTC_f818e 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/cc
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper
@@ -95,10 +95,10 @@ Thread model: posix
 gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0560b' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccyxBRkU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0560b /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0560b' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f818e' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cculRGSo.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f818e /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f818e' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
@@ -121,12 +121,12 @@ Parsed C implicit include dir info from above output: rv=done
 
 Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_0560b/fast && /usr/bin/make  -f CMakeFiles/cmTC_0560b.dir/build.make CMakeFiles/cmTC_0560b.dir/build]
-  ignore line: [make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building C object CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_f818e/fast && /usr/bin/make  -f CMakeFiles/cmTC_f818e.dir/build.make CMakeFiles/cmTC_f818e.dir/build]
+  ignore line: [make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building C object CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o   -c /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -135,8 +135,8 @@ Parsed C implicit link information from above output:
   ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 8.4.0-1ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/8/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/cc2054kQ.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/8/cc1 -quiet -v -imultiarch x86_64-linux-gnu /usr/local/share/cmake-3.16/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccgw3Gvl.s]
   ignore line: [GNU C17 (Ubuntu 8.4.0-1ubuntu1~18.04) version 8.4.0 (x86_64-linux-gnu)]
   ignore line: [	compiled by GNU C version 8.4.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
   ignore line: []
@@ -156,15 +156,15 @@ Parsed C implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: ce3422c0279d38edb238b376a46341f1]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-  ignore line: [ as -v --64 -o CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o /tmp/cc2054kQ.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o /tmp/ccgw3Gvl.s]
   ignore line: [GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
-  ignore line: [Linking C executable cmTC_0560b]
-  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0560b.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o  -o cmTC_0560b ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking C executable cmTC_f818e]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f818e.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/cc     -v CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o  -o cmTC_f818e ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/cc]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper]
@@ -176,13 +176,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_0560b' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccyxBRkU.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_0560b /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_f818e' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cculRGSo.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_f818e /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccyxBRkU.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cculRGSo.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -200,7 +200,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_0560b] ==> ignore
+    arg [cmTC_f818e] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o] ==> ignore
@@ -212,7 +212,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/8/../../..]
-    arg [CMakeFiles/cmTC_0560b.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_f818e.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -240,26 +240,26 @@ Parsed C implicit link information from above output:
 
 
 Determining if the CXX compiler works passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_babc4/fast && /usr/bin/make  -f CMakeFiles/cmTC_babc4.dir/build.make CMakeFiles/cmTC_babc4.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_babc4.dir/testCXXCompiler.cxx.o
-/usr/bin/c++     -o CMakeFiles/cmTC_babc4.dir/testCXXCompiler.cxx.o -c /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_babc4
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_babc4.dir/link.txt --verbose=1
-/usr/bin/c++       CMakeFiles/cmTC_babc4.dir/testCXXCompiler.cxx.o  -o cmTC_babc4 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_fc361/fast && /usr/bin/make  -f CMakeFiles/cmTC_fc361.dir/build.make CMakeFiles/cmTC_fc361.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_fc361.dir/testCXXCompiler.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_fc361.dir/testCXXCompiler.cxx.o -c /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_fc361
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc361.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_fc361.dir/testCXXCompiler.cxx.o  -o cmTC_fc361 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_71d31/fast && /usr/bin/make  -f CMakeFiles/cmTC_71d31.dir/build.make CMakeFiles/cmTC_71d31.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building CXX object CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/c++    -v -o CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
+Run Build Command(s):/usr/bin/make cmTC_5ae8e/fast && /usr/bin/make  -f CMakeFiles/cmTC_5ae8e.dir/build.make CMakeFiles/cmTC_5ae8e.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/c++    -v -o CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 OFFLOAD_TARGET_NAMES=nvptx-none
@@ -268,8 +268,8 @@ Target: x86_64-linux-gnu
 Configured with: ../src/configure -v --with-pkgversion='Ubuntu 8.4.0-1ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
 Thread model: posix
 gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) 
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/8/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccyEpKh1.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/8/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccKXOa6w.s
 GNU C++14 (Ubuntu 8.4.0-1ubuntu1~18.04) version 8.4.0 (x86_64-linux-gnu)
 	compiled by GNU C version 8.4.0, GMP version 6.1.2, MPFR version 4.0.1, MPC version 1.1.0, isl version isl-0.19-GMP
 
@@ -293,15 +293,15 @@ GNU C++14 (Ubuntu 8.4.0-1ubuntu1~18.04) version 8.4.0 (x86_64-linux-gnu)
 
 GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
 Compiler executable checksum: 67fba09f596cc8a67df33f8529603bfb
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- as -v --64 -o CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccyEpKh1.s
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ as -v --64 -o CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccKXOa6w.s
 GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-Linking CXX executable cmTC_71d31
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71d31.dir/link.txt --verbose=1
-/usr/bin/c++      -v CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_71d31 
+COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+Linking CXX executable cmTC_5ae8e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ae8e.dir/link.txt --verbose=1
+/usr/bin/c++      -v CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_5ae8e 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/c++
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper
@@ -313,10 +313,10 @@ Thread model: posix
 gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71d31' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc3azuuT.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_71d31 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71d31' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ae8e' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccu60Bbw.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5ae8e /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ae8e' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
@@ -345,12 +345,12 @@ Parsed CXX implicit include dir info from above output: rv=done
 
 Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
-  ignore line: [Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp]
+  ignore line: [Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command(s):/usr/bin/make cmTC_71d31/fast && /usr/bin/make  -f CMakeFiles/cmTC_71d31.dir/build.make CMakeFiles/cmTC_71d31.dir/build]
-  ignore line: [make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp']
-  ignore line: [Building CXX object CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/c++    -v -o CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Run Build Command(s):/usr/bin/make cmTC_5ae8e/fast && /usr/bin/make  -f CMakeFiles/cmTC_5ae8e.dir/build.make CMakeFiles/cmTC_5ae8e.dir/build]
+  ignore line: [make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp']
+  ignore line: [Building CXX object CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/c++    -v -o CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o -c /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none]
@@ -359,8 +359,8 @@ Parsed CXX implicit link information from above output:
   ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 8.4.0-1ubuntu1~18.04' --with-bugurl=file:///usr/share/doc/gcc-8/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ --prefix=/usr --with-gcc-major-version-only --program-suffix=-8 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-libmpx --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
   ignore line: [Thread model: posix]
   ignore line: [gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) ]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/8/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccyEpKh1.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/8/cc1plus -quiet -v -imultiarch x86_64-linux-gnu -D_GNU_SOURCE /usr/local/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpbase CMakeCXXCompilerABI.cpp -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o -version -fstack-protector-strong -Wformat -Wformat-security -o /tmp/ccKXOa6w.s]
   ignore line: [GNU C++14 (Ubuntu 8.4.0-1ubuntu1~18.04) version 8.4.0 (x86_64-linux-gnu)]
   ignore line: [	compiled by GNU C version 8.4.0  GMP version 6.1.2  MPFR version 4.0.1  MPC version 1.1.0  isl version isl-0.19-GMP]
   ignore line: []
@@ -384,15 +384,15 @@ Parsed CXX implicit link information from above output:
   ignore line: []
   ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
   ignore line: [Compiler executable checksum: 67fba09f596cc8a67df33f8529603bfb]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  ignore line: [ as -v --64 -o CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccyEpKh1.s]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [ as -v --64 -o CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o /tmp/ccKXOa6w.s]
   ignore line: [GNU assembler version 2.30 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.30]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  ignore line: [Linking CXX executable cmTC_71d31]
-  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_71d31.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_71d31 ]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  ignore line: [Linking CXX executable cmTC_5ae8e]
+  ignore line: [/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ae8e.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/c++      -v CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_5ae8e ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/c++]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper]
@@ -404,13 +404,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 8.4.0 (Ubuntu 8.4.0-1ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/8/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/8/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_71d31' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/cc3azuuT.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_71d31 /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5ae8e' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/8/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper -plugin-opt=-fresolution=/tmp/ccu60Bbw.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5ae8e /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/8 -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/8/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/8/../../.. CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/8/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/8/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/cc3azuuT.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccu60Bbw.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -428,7 +428,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_71d31] ==> ignore
+    arg [cmTC_5ae8e] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/8/crtbeginS.o] ==> ignore
@@ -440,7 +440,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/8/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/8/../../..]
-    arg [CMakeFiles/cmTC_71d31.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_5ae8e.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -464,100 +464,100 @@ Parsed CXX implicit link information from above output:
 
 
 Determining if the include file pthread.h exists passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_7f269/fast && /usr/bin/make  -f CMakeFiles/cmTC_7f269.dir/build.make CMakeFiles/cmTC_7f269.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_7f269.dir/CheckIncludeFile.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_7f269.dir/CheckIncludeFile.c.o   -c /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
-Linking C executable cmTC_7f269
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7f269.dir/link.txt --verbose=1
-/usr/bin/cc      CMakeFiles/cmTC_7f269.dir/CheckIncludeFile.c.o  -o cmTC_7f269 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_7d98e/fast && /usr/bin/make  -f CMakeFiles/cmTC_7d98e.dir/build.make CMakeFiles/cmTC_7d98e.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_7d98e.dir/CheckIncludeFile.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_7d98e.dir/CheckIncludeFile.c.o   -c /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_7d98e
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7d98e.dir/link.txt --verbose=1
+/usr/bin/cc      CMakeFiles/cmTC_7d98e.dir/CheckIncludeFile.c.o  -o cmTC_7d98e 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the function XOpenDisplay exists in the /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_c76ac/fast && /usr/bin/make  -f CMakeFiles/cmTC_c76ac.dir/build.make CMakeFiles/cmTC_c76ac.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c76ac.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_c76ac.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_c76ac
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c76ac.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTC_c76ac.dir/CheckFunctionExists.c.o  -o cmTC_c76ac  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_d6dda/fast && /usr/bin/make  -f CMakeFiles/cmTC_d6dda.dir/build.make CMakeFiles/cmTC_d6dda.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d6dda.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay   -o CMakeFiles/cmTC_d6dda.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d6dda
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6dda.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay    CMakeFiles/cmTC_d6dda.dir/CheckFunctionExists.c.o  -o cmTC_d6dda  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the function gethostbyname exists passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_5b99f/fast && /usr/bin/make  -f CMakeFiles/cmTC_5b99f.dir/build.make CMakeFiles/cmTC_5b99f.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_5b99f.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_5b99f.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_5b99f
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b99f.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_5b99f.dir/CheckFunctionExists.c.o  -o cmTC_5b99f 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_78817/fast && /usr/bin/make  -f CMakeFiles/cmTC_78817.dir/build.make CMakeFiles/cmTC_78817.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_78817.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname   -o CMakeFiles/cmTC_78817.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_78817
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78817.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname    CMakeFiles/cmTC_78817.dir/CheckFunctionExists.c.o  -o cmTC_78817 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the function connect exists passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_10f93/fast && /usr/bin/make  -f CMakeFiles/cmTC_10f93.dir/build.make CMakeFiles/cmTC_10f93.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_10f93.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_10f93.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_10f93
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_10f93.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_10f93.dir/CheckFunctionExists.c.o  -o cmTC_10f93 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_6ab7a/fast && /usr/bin/make  -f CMakeFiles/cmTC_6ab7a.dir/build.make CMakeFiles/cmTC_6ab7a.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_6ab7a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect   -o CMakeFiles/cmTC_6ab7a.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_6ab7a
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6ab7a.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect    CMakeFiles/cmTC_6ab7a.dir/CheckFunctionExists.c.o  -o cmTC_6ab7a 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the function remove exists passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_b8f6f/fast && /usr/bin/make  -f CMakeFiles/cmTC_b8f6f.dir/build.make CMakeFiles/cmTC_b8f6f.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b8f6f.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_b8f6f.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_b8f6f
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b8f6f.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_b8f6f.dir/CheckFunctionExists.c.o  -o cmTC_b8f6f 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_32cb2/fast && /usr/bin/make  -f CMakeFiles/cmTC_32cb2.dir/build.make CMakeFiles/cmTC_32cb2.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_32cb2.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove   -o CMakeFiles/cmTC_32cb2.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_32cb2
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_32cb2.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove    CMakeFiles/cmTC_32cb2.dir/CheckFunctionExists.c.o  -o cmTC_32cb2 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the function shmat exists passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_cddad/fast && /usr/bin/make  -f CMakeFiles/cmTC_cddad.dir/build.make CMakeFiles/cmTC_cddad.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_cddad.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_cddad.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_cddad
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cddad.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_cddad.dir/CheckFunctionExists.c.o  -o cmTC_cddad 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_85385/fast && /usr/bin/make  -f CMakeFiles/cmTC_85385.dir/build.make CMakeFiles/cmTC_85385.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_85385.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat   -o CMakeFiles/cmTC_85385.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_85385
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85385.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat    CMakeFiles/cmTC_85385.dir/CheckFunctionExists.c.o  -o cmTC_85385 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 
 Determining if the function IceConnectionNumber exists in the ICE passed with the following output:
-Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp
+Change Dir: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_10566/fast && /usr/bin/make  -f CMakeFiles/cmTC_10566.dir/build.make CMakeFiles/cmTC_10566.dir/build
-make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_10566.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_10566.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_10566
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_10566.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTC_10566.dir/CheckFunctionExists.c.o  -o cmTC_10566  -lICE 
-make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/CMakeFiles/CMakeTmp'
+Run Build Command(s):/usr/bin/make cmTC_aa454/fast && /usr/bin/make  -f CMakeFiles/cmTC_aa454.dir/build.make CMakeFiles/cmTC_aa454.dir/build
+make[1]: Entering directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_aa454.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber   -o CMakeFiles/cmTC_aa454.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_aa454
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_aa454.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber    CMakeFiles/cmTC_aa454.dir/CheckFunctionExists.c.o  -o cmTC_aa454  -lICE 
+make[1]: Leaving directory '/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/CMakeFiles/CMakeTmp'
 
 
 

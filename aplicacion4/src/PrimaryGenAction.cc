@@ -30,7 +30,7 @@ PrimaryGenAction::PrimaryGenAction(){
     if(!fIsLoaded){
 
         //Carga de partículas desde el archivo CSV
-        LoadParticlesFromCSV("/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/../particlegen/input/input_particles_971MeV_proton.csv");
+        LoadParticlesFromCSV("/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/../particlegen/input/input_particles_971MeV_proton.csv");
         fIsLoaded = true;
         //Debugging
         G4cout << "Loaded " << fParticleList.size() << " particles from CSV" << G4endl;

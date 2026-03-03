@@ -1,4 +1,4 @@
-# Install script for directory: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3
+# Install script for directory: /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion3/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion4/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
