@@ -68,7 +68,7 @@ G4VPhysicalVolume* DetConstruction::Construct(){
 
     G4LogicalVolume *logicWestWall = new G4LogicalVolume(solidWestWall,hormigon,"logicWestWall");
 
-    new G4PVPlacement(nullptr,G4ThreeVector(-3.85*m,-91.0*m,0*m),logicWestWall,"physWestWall",logicWorld,false,0);
+    new G4PVPlacement(nullptr,G4ThreeVector(-3.85*m,-90.85*m,0*m),logicWestWall,"physWestWall",logicWorld,false,0);
 
 
     //Pared este
@@ -76,7 +76,7 @@ G4VPhysicalVolume* DetConstruction::Construct(){
 
     G4LogicalVolume *logicEastWall = new G4LogicalVolume(solidEastWall,hormigon,"logicEastWall");
 
-    new G4PVPlacement(nullptr,G4ThreeVector(3.85*m,-91.0*m,0*m),logicEastWall,"physEastWall",logicWorld,false,0);
+    new G4PVPlacement(nullptr,G4ThreeVector(3.85*m,-90.85*m,0*m),logicEastWall,"physEastWall",logicWorld,false,0);
 
 
     //Pared norte
@@ -84,7 +84,7 @@ G4VPhysicalVolume* DetConstruction::Construct(){
 
     G4LogicalVolume *logicNorthWall = new G4LogicalVolume(solidNorthWall,hormigon,"logicNorthWall");
 
-    new G4PVPlacement(nullptr,G4ThreeVector(0*m,-91.0*m,3.85*m),logicNorthWall,"physNorthWall",logicWorld,false,0);
+    new G4PVPlacement(nullptr,G4ThreeVector(0*m,-90.85*m,3.85*m),logicNorthWall,"physNorthWall",logicWorld,false,0);
 
 
     //Pared sur
@@ -92,15 +92,7 @@ G4VPhysicalVolume* DetConstruction::Construct(){
 
     G4LogicalVolume *logicSouthWall = new G4LogicalVolume(solidSouthWall,hormigon,"logicSouthWall");
 
-    new G4PVPlacement(nullptr,G4ThreeVector(0*m,-91.0*m,-3.85*m),logicSouthWall,"physSouthWall",logicWorld,false,0);
-
-
-    //Suelo
-    G4Box *solidFloor = new G4Box("solidFloor", 4 * m, 15 * cm,  4 * m);
-
-    G4LogicalVolume *logicFloor = new G4LogicalVolume(solidFloor,hormigon,"logicFloor");
-
-    new G4PVPlacement(nullptr,G4ThreeVector(0,-93.15*m,0*m),logicFloor,"physFloor",logicWorld,false,0);
+    new G4PVPlacement(nullptr,G4ThreeVector(0*m,-90.85*m,-3.85*m),logicSouthWall,"physSouthWall",logicWorld,false,0);
     
 
     return physWorld;
