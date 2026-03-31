@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+  <define>
+    <constant name="HALFPI" value="pi/2"/>
+  <constant name="PI" value="1*pi"/>
+  <constant name="TWOPI" value="2*pi"/>
+  <rotation name="identity" x="0" y="0" z="0"/>
+  </define>
+<materials>
+    <element name="K_element" Z="19" formula="K">
+      <atom value="39.0983"/>
+    </element>
+  <element name="N_element" Z="7" formula="N">
+      <atom value="14.007"/>
+    </element>
+  <element name="Na_element" Z="11" formula="Na">
+      <atom value="22.98976928"/>
+    </element>
+  <element name="O_element" Z="8" formula="O">
+      <atom value="15.999"/>
+    </element>
+  <element name="Si_element" Z="14" formula="Si">
+      <atom value="28.085"/>
+    </element>
+  <element name="Ar_element" Z="18" formula="Ar">
+      <atom value="39.95"/>
+    </element>
+  <element name="Mg_element" Z="12" formula="Mg">
+      <atom value="24.305"/>
+    </element>
+  <element name="C_element" Z="6" formula="C">
+      <atom value="12.011"/>
+    </element>
+  <element name="Fe_element" Z="26" formula="Fe">
+      <atom value="55.845"/>
+    </element>
+  <element name="Ca_element" Z="20" formula="Ca">
+      <atom value="40.078"/>
+    </element>
+  <element name="Al_element" Z="13" formula="Al">
+      <atom value="26.9815384"/>
+    </element>
+  <element name="H_element" Z="1" formula="H">
+      <atom value="1.008"/>
+    </element>
+  <material name="G4_Al" formula="Al">
+      <D unit="g/cm3" value="2.699"/>
+    <composite n="1" ref="Al_element"/>
+    </material>
+  <material name="G4_CONCRETE" formula="G4_CONCRETE">
+      <D unit="g/cm3" value="2.3"/>
+    <fraction n="0.01" ref="H_element"/>
+    <fraction n="0.001" ref="C_element"/>
+    <fraction n="0.529107" ref="O_element"/>
+    <fraction n="0.016" ref="Na_element"/>
+    <fraction n="0.002" ref="Mg_element"/>
+    <fraction n="0.033872" ref="Al_element"/>
+    <fraction n="0.337021" ref="Si_element"/>
+    <fraction n="0.013" ref="K_element"/>
+    <fraction n="0.044" ref="Ca_element"/>
+    <fraction n="0.014" ref="Fe_element"/>
+    </material>
+  <material name="G4_AIR" formula="G4_AIR">
+      <D unit="g/cm3" value="0.00120479"/>
+    <fraction n="0.000124" ref="C_element"/>
+    <fraction n="0.755268" ref="N_element"/>
+    <fraction n="0.231781" ref="O_element"/>
+    <fraction n="0.012827" ref="Ar_element"/>
+    </material>
+  </materials>
+<solids>
+    <box name="WorldBox" x="20.0" y="200.0" z="20.0" lunit="m"/>
+  <box name="Box" x="6.0" y="0.2" z="6.0" lunit="m"/>
+  <box name="Box001" x="0.3" y="4.0" z="8.0" lunit="m"/>
+  <box name="Box002" x="0.3" y="4.0" z="8.0" lunit="m"/>
+  <box name="Box003" x="8.0" y="4.0" z="0.3" lunit="m"/>
+  <box name="Box004" x="8.0" y="4.0" z="0.3" lunit="m"/>
+  <box name="Box005" x="8.0" y="0.3" z="8.0" lunit="m"/>
+  <box name="physRoof003" x="5.05" y="0.3" z="8.0" lunit="m"/>
+  <box name="physRoof004" x="5.1" y="0.3" z="8.0" lunit="m"/>
+  <union name="Fuse">
+      <first ref="physRoof003"/>
+    <second ref="physRoof004"/>
+    <position name="P-GDMLBox_Box0077" unit="mm" x="3276.6081771559693" y="-2294.3057454041846"/>
+    <rotation name="R-GDMLBox_Box0071" unit="deg" z="-70.00000000000003"/>
+    </union>
+  </solids>
+<structure>
+    <volume name="physDetector">
+      <materialref ref="G4_Al"/>
+    <solidref ref="Box"/>
+    <auxiliary auxtype="Color" auxvalue="#00ff7b00"/>
+    </volume>
+  <volume name="physWestWall">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box001"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="physEastWall">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box002"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="physNorthWall">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box003"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="physSouthWall">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box004"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="physFloor">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Box005"/>
+    <auxiliary auxtype="Color" auxvalue="#0cff0000"/>
+    </volume>
+  <volume name="physRoof">
+      <materialref ref="G4_CONCRETE"/>
+    <solidref ref="Fuse"/>
+    <auxiliary auxtype="Color" auxvalue="#72798000"/>
+    </volume>
+  <volume name="worldVOL">
+      <materialref ref="G4_AIR"/>
+    <solidref ref="WorldBox"/>
+    <physvol name="PV_physDetector">
+        <volumeref ref="physDetector"/>
+      <position name="P-physDetector1" unit="mm" y="-92100.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_physWestWall">
+        <volumeref ref="physWestWall"/>
+      <position name="P-physWestWall2" unit="mm" x="-3850.0" y="-91000.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_physEastWall">
+        <volumeref ref="physEastWall"/>
+      <position name="P-physEastWall3" unit="mm" x="3850.0" y="-91000.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_physNorthWall">
+        <volumeref ref="physNorthWall"/>
+      <position name="P-physNorthWall4" unit="mm" y="-91000.0" z="3850.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_physSouthWall">
+        <volumeref ref="physSouthWall"/>
+      <position name="P-physSouthWall5" unit="mm" y="-91000.0" z="-3850.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_physFloor">
+        <volumeref ref="physFloor"/>
+      <position name="P-physFloor6" unit="mm" y="-93150.0"/>
+      <rotationref ref="identity"/>
+      </physvol>
+    <physvol name="PV_physRoof">
+        <volumeref ref="physRoof"/>
+      <position name="P-physRoof8" unit="mm" x="-2000.0" y="-87590.0"/>
+      <rotation name="R-physRoof2" unit="deg" z="-34.99999999999999"/>
+      </physvol>
+    </volume>
+  </structure>
+<setup name="Default" version="1.0">
+    <world ref="worldVOL"/>
+  </setup>
+</gdml>
