@@ -46,7 +46,7 @@ for INPUT_FILE in "$INPUT_DIR"/*.csv; do
     
     # Ejecutar
     echo "  Ejecutando..."
-    ./aplicacion4 ../mac_files/run_batch.mac
+    ./aplicacion6 ../mac_files/run_batch.mac
     
     cd "$PROJECT_DIR"
     

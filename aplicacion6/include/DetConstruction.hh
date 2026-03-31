@@ -1,7 +1,7 @@
 #ifndef DETCONSTRUCTION_HH
 #define DETCONSTRUCTION_HH
 #include "G4VUserDetectorConstruction.hh"
-
+#include "G4VPhysicalVolume.hh"
 
 class DetConstruction : public G4VUserDetectorConstruction{
     public:

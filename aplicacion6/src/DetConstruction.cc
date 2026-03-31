@@ -8,6 +8,8 @@
 #include "G4NistManager.hh"
 #include "SensitiveDetector.hh"
 #include "G4SDManager.hh"
+#include "G4GDMLParser.hh"
+#include "G4LogicalVolumeStore.hh"
 
 DetConstruction::DetConstruction(){
 }
@@ -28,7 +30,7 @@ G4VPhysicalVolume* DetConstruction::Construct() {
     // 2. Leer GDML exportado desde FreeCAD
     // -------------------------------
     G4GDMLParser parser;
-    parser.Read("../geometry/v4_15pinzas-worldVOL.gdml");
+    parser.Read("../geometries/casav1-worldVOL.gdml");
     
     G4cout << "GDML loaded: ../geometries/casav1-worldVOL.gdml" << G4endl;
     
