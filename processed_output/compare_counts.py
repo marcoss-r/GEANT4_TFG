@@ -114,8 +114,8 @@ plt.scatter(energies_log, ratio_neutron, label="Haz de neutrones", alpha=0.7, s=
 plt.xscale("log")
 
 plt.xlabel("Energía del haz [MeV]", fontsize=12)
-plt.ylabel("Proporción de detección (p/n, E ≥ 20 MeV)", fontsize=12)
-plt.title("Efecto de la cobertura: detección de protones y neutrones", fontsize=14)
+plt.ylabel("Proporción de detección (E ≥ 20 MeV)", fontsize=12)
+plt.title("Comparación de detección de protones y neutrones", fontsize=14)
 
 # Línea horizontal en y=1
 plt.axhline(y=1.0, color='gray', linestyle='--', linewidth=1, alpha=0.5, label='Sin atenuación')

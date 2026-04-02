@@ -13,7 +13,7 @@ N_LAUNCHED = 10000
 E_MIN = 20       # MeV
 E_MAX = 30000    # MeV
 
-# Columnas correctas del CSV
+# Columnas de los CSVs generados
 COLUMN_NAMES = [
     'EventID',
     'ParticleName',
@@ -28,13 +28,16 @@ COLUMN_NAMES = [
     'MomY',
     'MomZ'
 ]
+# ========== FUNCIONES ==========
 
 def extract_energy(filename):
-    """Extrae energía en MeV del nombre del archivo."""
+    """Extrae energía en MeV a partir del nombre del archivo."""
+    #Buscar patrón de MeV
     match = re.search(r'(\d+\.?\d*)MeV', filename)
     if match:
         return float(match.group(1))
     
+    #Buscar patrón de GeV
     match = re.search(r'(\d+\.?\d*)GeV', filename)
     if match:
         return float(match.group(1)) * 1000
@@ -44,7 +47,7 @@ def extract_energy(filename):
 
 def compute_counts_all_particles(directory, energy_threshold=20):
     """
-    Cuenta TODAS las partículas detectadas con energía >= threshold.
+    Cuenta todas las partículas detectadas con energía superior al umbral.
     """
     files = glob.glob(os.path.join(directory, "*.csv"))
     
@@ -63,7 +66,7 @@ def compute_counts_all_particles(directory, energy_threshold=20):
     for energy, filepath in data:
         df = pd.read_csv(filepath, names=COLUMN_NAMES, skiprows=1)
         
-        # Filtrar por energía depositada >= threshold
+        # Filtrar por energía depositada superior al umbral
         df_filtered = df[df['DepositedEnergy_MeV'] >= energy_threshold]
         
         counts.append(len(df_filtered))
@@ -73,7 +76,7 @@ def compute_counts_all_particles(directory, energy_threshold=20):
 
 def compute_counts_specific_particles(directory, particle_types=['proton', 'neutron'], energy_threshold=20):
     """
-    Cuenta solo partículas específicas (proton/neutron) con energía >= threshold.
+    Cuenta solo protones y neutrones con energía superior al umbral.
     """
     files = glob.glob(os.path.join(directory, "*.csv"))
     
@@ -92,7 +95,7 @@ def compute_counts_specific_particles(directory, particle_types=['proton', 'neut
     for energy, filepath in data:
         df = pd.read_csv(filepath, names=COLUMN_NAMES, skiprows=1)
         
-        # Filtrar por tipo de partícula Y energía
+        # Filtrar por tipo de partícula y energía
         df_filtered = df[
             (df['ParticleName'].isin(particle_types)) & 
             (df['DepositedEnergy_MeV'] >= energy_threshold)
@@ -121,14 +124,14 @@ plt.xscale("log")
 
 plt.xlabel("Energía del haz [MeV]", fontsize=12)
 plt.ylabel("Número de partículas detectadas (E ≥ 20 MeV)", fontsize=12)
-plt.title("Conteo total de partículas detectadas vs Energía del haz", fontsize=14)
+plt.title("Conteo total de partículas detectadas en función de la energía del haz", fontsize=12)
 
 plt.grid(True, which="both", ls="--", alpha=0.3)
 plt.legend(fontsize=11)
 
 plt.tight_layout()
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_file1 = os.path.join(OUTPUT_DIR, "plot_all_particles_E20MeV.png")
+output_file1 = os.path.join(OUTPUT_DIR, "plot_all_counts_aboveTH.png")
 plt.savefig(output_file1, dpi=300)
 print(f"✓ Gráfica 1 guardada: {output_file1}")
 plt.show()
@@ -153,7 +156,7 @@ plt.xscale("log")
 
 plt.xlabel("Energía del haz [MeV]", fontsize=12)
 plt.ylabel("Número de p/n detectados (E ≥ 20 MeV)", fontsize=12)
-plt.title("Conteo de protones y neutrones detectados vs Energía del haz", fontsize=14)
+plt.title("Conteo de protones y neutrones detectados en función de la energía del haz", fontsize=12)
 
 plt.grid(True, which="both", ls="--", alpha=0.3)
 plt.legend(fontsize=11)
