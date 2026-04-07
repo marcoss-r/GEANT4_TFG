@@ -6,13 +6,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # ========== CONFIGURACIÓN ==========
-REFERENCE_DIR_PROTON = "aplicacion4/output_proton"
-REFERENCE_DIR_NEUTRON = "aplicacion4/output_neutron"
+REFERENCE_DIR_PROTON = "aplicacion5/output_proton"
+REFERENCE_DIR_NEUTRON = "aplicacion5/output_neutron"
 
-COVERED_DIR_PROTON = "aplicacion5/output_proton"
-COVERED_DIR_NEUTRON = "aplicacion5/output_neutron"
+COVERED_DIR_PROTON = "aplicacion6/output_proton"
+COVERED_DIR_NEUTRON = "aplicacion6/output_neutron"
 
-OUTPUT_DIR = "aplicacion5/output_plots"
+OUTPUT_DIR = "aplicacion6/output_plots"
 
 E_MIN = 20       # MeV
 E_MAX = 30000    # MeV
@@ -127,7 +127,7 @@ plt.tight_layout()
 
 # Guardar
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_file = os.path.join(OUTPUT_DIR, "plot_attenuation_ratio_proton_neutron_E20MeV.png")
+output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_5_to_6.png")
 plt.savefig(output_file, dpi=300)
 print(f"\n✓ Gráfica guardada: {output_file}")
 plt.show()
