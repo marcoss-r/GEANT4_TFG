@@ -1,3 +1,3 @@
-C:/Users/marco/GEANT4/Aplicaciones/Aplicacion-1/build/CMakeFiles/Aplicacion-1.dir
-C:/Users/marco/GEANT4/Aplicaciones/Aplicacion-1/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/marco/GEANT4/Aplicaciones/Aplicacion-1/build/CMakeFiles/ZERO_CHECK.dir
+/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion2/build/CMakeFiles/rebuild_cache.dir
+/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion2/build/CMakeFiles/edit_cache.dir
+/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/aplicacion2/build/CMakeFiles/aplicacion2.dir
