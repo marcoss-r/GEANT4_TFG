@@ -12,7 +12,7 @@ PrimaryGenAction::PrimaryGenAction(){
     fparticleGun = new G4ParticleGun();
 
     fparticleName="neutron";
-    fparticleEnergy=5000*MeV;
+    fparticleEnergy=20000*MeV;
 
     fparticleGun->SetParticleDefinition(G4ParticleTable::GetParticleTable()->FindParticle(fparticleName));
     fparticleGun->SetParticleMomentumDirection(G4ThreeVector(0, 0, -1));

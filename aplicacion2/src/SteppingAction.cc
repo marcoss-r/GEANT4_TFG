@@ -8,7 +8,7 @@ namespace prueba{
 Con esta clase, podemos definir un método de la clase */    
     void SteppingAction::UserSteppingAction(const G4Step *aStep ){
         if (aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName() == "physDetector"){
-            G4cout << "Hit detector" << G4endl;
+           
         }
     }
 }
