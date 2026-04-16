@@ -13,15 +13,15 @@ BUILD_DIR="$PROJECT_DIR/build"
 PRIMARY_FILE="$SRC_DIR/PrimaryGenAction.cc"
 DETECTOR_FILE="$SRC_DIR/SensitiveDetector.cc"
 
-# Crear carpeta output si no existe
+# Creación de carpeta output si no existe
 mkdir -p "$OUTPUT_DIR"
 
-# Obtener todos los CSVs de input
+# Obtención de todos los CSVs de entrada
 for INPUT_FILE in "$INPUT_DIR"/*.csv; do
     
     BASENAME=$(basename "$INPUT_FILE")
     
-    # Generar nombre de salida
+    # Generación de nombre de salida
     OUTPUT_NAME="${BASENAME/input/output}"
     OUTPUT_FILE="$OUTPUT_DIR/$OUTPUT_NAME"
     
@@ -29,10 +29,10 @@ for INPUT_FILE in "$INPUT_DIR"/*.csv; do
     echo "  Input:  $INPUT_FILE"
     echo "  Output: $OUTPUT_FILE"
     
-    # Modificar PrimaryGenAction.cc con ruta ABSOLUTA
+    # Modificar PrimaryGenAction.cc
     sed -i "s|LoadParticlesFromCSV(\".*\");|LoadParticlesFromCSV(\"$INPUT_FILE\");|g" "$PRIMARY_FILE"
     
-    # Modificar SensitiveDetector.cc con ruta ABSOLUTA
+    # Modificar SensitiveDetector.cc
     sed -i "s|fOutputFile.open(\".*\", std::ios::app);|fOutputFile.open(\"$OUTPUT_FILE\", std::ios::app);|g" "$DETECTOR_FILE"
     
     # Limpiar y compilar

@@ -79,7 +79,7 @@ plt.xscale("log")
 
 plt.xlabel("Energía [MeV]")
 plt.ylabel("Fracción de partículas en detector")
-plt.title(" Fracción de partículas detectadas en función de la Energía")
+plt.title(" Fracción de partículas detectadas en función de la energía")
 
 plt.grid(True, which="both", ls="--", alpha=0.5)
 plt.legend()
