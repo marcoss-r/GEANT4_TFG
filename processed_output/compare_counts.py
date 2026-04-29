@@ -6,8 +6,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # ========== CONFIGURACIÓN ==========
-REFERENCE_DIR_PROTON = "aplicacion5/output_proton"
-REFERENCE_DIR_NEUTRON = "aplicacion5/output_neutron"
+REFERENCE_DIR_PROTON = "aplicacion3/output_proton"
+REFERENCE_DIR_NEUTRON = "aplicacion3/output_neutron"
 
 COVERED_DIR_PROTON = "aplicacion6/output_proton"
 COVERED_DIR_NEUTRON = "aplicacion6/output_neutron"
@@ -127,7 +127,7 @@ plt.tight_layout()
 
 # Guardar
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_5_to_6.png")
+output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_3_to_6.png")
 plt.savefig(output_file, dpi=300)
 print(f"\n✓ Gráfica guardada: {output_file}")
 plt.show()
@@ -145,3 +145,16 @@ print(f"  Atenuación media: {(1 - ratio_neutron.mean())*100:.1f}%")
 print(f"  Rango: {ratio_neutron.min():.3f} - {ratio_neutron.max():.3f}")
 
 print("\n✅ Procesamiento completado")
+
+# ========== IMPRIMIR PROPORCIONES ==========
+print("\n" + "="*60)
+print("PROPORCIONES DE DETECCIÓN")
+print("="*60)
+
+print("\nHaz de PROTONES:")
+for E, r in zip(energies_log, ratio_proton):
+    print(f"E = {E:10.3f} MeV   Proporción = {r:.6f}")
+
+print("\nHaz de NEUTRONES:")
+for E, r in zip(energies_log, ratio_neutron):
+    print(f"E = {E:10.3f} MeV   Proporción = {r:.6f}")

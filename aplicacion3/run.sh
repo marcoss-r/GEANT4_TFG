@@ -4,7 +4,7 @@
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
 # Carpetas (ABSOLUTAS)
-INPUT_DIR="$PROJECT_DIR/../particlegen/input"
+INPUT_DIR="$PROJECT_DIR/../particlegen/input2"
 OUTPUT_DIR="$PROJECT_DIR/../particlegen/output"
 SRC_DIR="$PROJECT_DIR/src"
 BUILD_DIR="$PROJECT_DIR/build"
