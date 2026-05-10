@@ -1,3 +1,9 @@
+###############################################################################
+# Script para generar archivos CSV vacíos con el mismo formato que
+# particlegen.py, pero sin datos.
+###############################################################################
+
+
 import os
 
 carpeta_origen = "./input"

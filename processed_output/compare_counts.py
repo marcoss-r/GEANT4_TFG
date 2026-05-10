@@ -1,3 +1,10 @@
+###############################################################################
+# Script para comparar los conteos de protones y neutrones con energías 
+# superiores a 20 MeV entre dos conjuntos de archivos CSV, donde el primero
+# actúa como referencia para calcular una proporción.
+#################################################################################
+
+
 import os
 import glob
 import re
@@ -6,18 +13,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # ========== CONFIGURACIÓN ==========
-REFERENCE_DIR_PROTON = "aplicacion3/output_proton"
-REFERENCE_DIR_NEUTRON = "aplicacion3/output_neutron"
+REFERENCE_DIR_PROTON  = "aplicacion5/output_proton"
+REFERENCE_DIR_NEUTRON = "aplicacion5/output_neutron"
 
-COVERED_DIR_PROTON = "aplicacion6/output_proton"
-COVERED_DIR_NEUTRON = "aplicacion6/output_neutron"
+COVERED_DIR_PROTON    = "aplicacion6/output_proton"
+COVERED_DIR_NEUTRON   = "aplicacion6/output_neutron"
 
 OUTPUT_DIR = "aplicacion6/output_plots"
 
-E_MIN = 20       # MeV
-E_MAX = 30000    # MeV
-
-# Columnas del CSV
 COLUMN_NAMES = [
     'EventID',
     'ParticleName',
@@ -39,95 +42,97 @@ def extract_energy(filename):
     match = re.search(r'(\d+\.?\d*)MeV', filename)
     if match:
         return float(match.group(1))
-    
     match = re.search(r'(\d+\.?\d*)GeV', filename)
     if match:
         return float(match.group(1)) * 1000
-    
-    raise ValueError(f"No se pudo extraer energía de {filename}")
+    raise ValueError(f"No se pudo extraer energía de: {filename}")
 
 
-def compute_counts_proton_neutron(directory, energy_threshold=20):
+def compute_counts_by_energy(directory, energy_threshold=20):
     """
-    Cuenta SOLO protones y neutrones con energía depositada >= threshold.
+    Devuelve un dict {energia_MeV: conteo} con solo protones/neutrones
+    con energía depositada >= threshold.
+    La clave es la energía real extraída del nombre del archivo.
     """
     files = glob.glob(os.path.join(directory, "*.csv"))
-    
-    if len(files) == 0:
-        raise ValueError(f"No se encontraron archivos en {directory}")
-    
-    data = []
-    for f in files:
-        energy = extract_energy(os.path.basename(f))
-        data.append((energy, f))
-    
-    data.sort(key=lambda x: x[0])
-    
-    counts = []
-    
-    for energy, filepath in data:
+    if not files:
+        raise ValueError(f"No se encontraron archivos CSV en: {directory}")
+
+    counts = {}
+    for filepath in files:
+        energy = extract_energy(os.path.basename(filepath))
+
         df = pd.read_csv(filepath, names=COLUMN_NAMES, skiprows=1)
-        
-        # Filtrar: solo proton/neutron Y energía >= 20 MeV
+
+        # Convertir a numérico por si hay headers duplicados residuales
+        df['DepositedEnergy_MeV'] = pd.to_numeric(df['DepositedEnergy_MeV'], errors='coerce')
+
         df_filtered = df[
-            (df['ParticleName'].isin(['proton', 'neutron'])) & 
+            (df['ParticleName'].isin(['proton', 'neutron'])) &
             (df['DepositedEnergy_MeV'] >= energy_threshold)
         ]
-        
-        counts.append(len(df_filtered))
-    
-    return np.array(counts)
+
+        counts[energy] = len(df_filtered)
+
+    return counts
+
+
+def align_and_ratio(ref_counts: dict, cov_counts: dict):
+    """
+    Une los dos dicts por energía (solo las energías presentes en AMBOS),
+    ordena por energía y calcula la proporción cubierto/referencia.
+    Devuelve (energies, ratios, ref_array, cov_array).
+    """
+    common_energies = sorted(set(ref_counts.keys()) & set(cov_counts.keys()))
+
+    missing_ref = set(cov_counts.keys()) - set(ref_counts.keys())
+    missing_cov = set(ref_counts.keys()) - set(cov_counts.keys())
+    if missing_ref:
+        print(f"  ⚠ Energías en cubierto pero NO en referencia (ignoradas): {sorted(missing_ref)}")
+    if missing_cov:
+        print(f"  ⚠ Energías en referencia pero NO en cubierto (ignoradas): {sorted(missing_cov)}")
+
+    ref_arr = np.array([ref_counts[e] for e in common_energies], dtype=float)
+    cov_arr = np.array([cov_counts[e] for e in common_energies], dtype=float)
+
+    ratios = np.divide(cov_arr, ref_arr,
+                       out=np.zeros_like(cov_arr),
+                       where=ref_arr != 0)
+
+    return np.array(common_energies), ratios, ref_arr, cov_arr
 
 
 # ========== PROCESAMIENTO ==========
-print("Calculando conteos de referencia...")
-print("  Filtrando: solo proton/neutron con E ≥ 20 MeV")
-ref_proton = compute_counts_proton_neutron(REFERENCE_DIR_PROTON, energy_threshold=20)
-ref_neutron = compute_counts_proton_neutron(REFERENCE_DIR_NEUTRON, energy_threshold=20)
+print("Calculando conteos de referencia (aplicacion5)...")
+ref_proton_counts  = compute_counts_by_energy(REFERENCE_DIR_PROTON)
+ref_neutron_counts = compute_counts_by_energy(REFERENCE_DIR_NEUTRON)
 
-print("\nCalculando conteos con cobertura...")
-print("  Filtrando: solo proton/neutron con E ≥ 20 MeV")
-covered_proton = compute_counts_proton_neutron(COVERED_DIR_PROTON, energy_threshold=20)
-covered_neutron = compute_counts_proton_neutron(COVERED_DIR_NEUTRON, energy_threshold=20)
+print("Calculando conteos con cobertura (aplicacion6)...")
+cov_proton_counts  = compute_counts_by_energy(COVERED_DIR_PROTON)
+cov_neutron_counts = compute_counts_by_energy(COVERED_DIR_NEUTRON)
 
-# Verificar longitudes
-n_points = min(len(ref_proton), len(covered_proton), len(ref_neutron), len(covered_neutron))
+print("\nAlineando por energía real...")
+energies_p, ratio_proton,  ref_p, cov_p = align_and_ratio(ref_proton_counts,  cov_proton_counts)
+energies_n, ratio_neutron, ref_n, cov_n = align_and_ratio(ref_neutron_counts, cov_neutron_counts)
 
-# Generar logspace
-energies_log = np.logspace(np.log10(E_MIN), np.log10(E_MAX), n_points)
-
-# ========== CALCULAR PROPORCIONES ==========
-ratio_proton = np.divide(covered_proton[:n_points], ref_proton[:n_points], 
-                         out=np.zeros_like(covered_proton[:n_points], dtype=float), 
-                         where=ref_proton[:n_points]!=0)
-
-ratio_neutron = np.divide(covered_neutron[:n_points], ref_neutron[:n_points], 
-                          out=np.zeros_like(covered_neutron[:n_points], dtype=float), 
-                          where=ref_neutron[:n_points]!=0)
-
-# ========== GRÁFICA: Proporción de detección ==========
+# ========== GRÁFICA ==========
 plt.figure(figsize=(10, 6))
 
-plt.scatter(energies_log, ratio_proton, label="Haz de protones", alpha=0.7, s=50)
-plt.scatter(energies_log, ratio_neutron, label="Haz de neutrones", alpha=0.7, s=50)
+plt.scatter(energies_p, ratio_proton,  label="Haz de protones",  alpha=0.7, s=50)
+plt.scatter(energies_n, ratio_neutron, label="Haz de neutrones", alpha=0.7, s=50)
 
 plt.xscale("log")
+plt.axhline(y=1.0, color='gray', linestyle='--', linewidth=1, alpha=0.5, label='Sin atenuación')
 
 plt.xlabel("Energía del haz [MeV]", fontsize=12)
 plt.ylabel("Proporción de detección (E ≥ 20 MeV)", fontsize=12)
-plt.title("Comparación de detección de protones y neutrones", fontsize=14)
-
-# Línea horizontal en y=1
-plt.axhline(y=1.0, color='gray', linestyle='--', linewidth=1, alpha=0.5, label='Sin atenuación')
-
+plt.title("Proporción de conteos debido a la cobertura en función de la energía", fontsize=14)
 plt.grid(True, which="both", ls="--", alpha=0.3)
 plt.legend(fontsize=11)
-
 plt.tight_layout()
 
-# Guardar
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_3_to_6.png")
+output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_5_to_6.png")
 plt.savefig(output_file, dpi=300)
 print(f"\n✓ Gráfica guardada: {output_file}")
 plt.show()
@@ -136,25 +141,37 @@ plt.show()
 print("\n" + "="*60)
 print("ESTADÍSTICAS DE ATENUACIÓN (solo p/n con E ≥ 20 MeV)")
 print("="*60)
-print(f"\nHaz de PROTONES:")
-print(f"  Atenuación media: {(1 - ratio_proton.mean())*100:.1f}%")
-print(f"  Rango: {ratio_proton.min():.3f} - {ratio_proton.max():.3f}")
 
-print(f"\nHaz de NEUTRONES:")
-print(f"  Atenuación media: {(1 - ratio_neutron.mean())*100:.1f}%")
-print(f"  Rango: {ratio_neutron.min():.3f} - {ratio_neutron.max():.3f}")
+for label, energies, ratios, ref_arr, cov_arr in [
+    ("PROTONES",  energies_p, ratio_proton,  ref_p, cov_p),
+    ("NEUTRONES", energies_n, ratio_neutron, ref_n, cov_n),
+]:
+    print(f"\nHaz de {label}:")
+    print(f"  Atenuación media : {(1 - ratios.mean())*100:.1f}%")
+    print(f"  Rango proporción : {ratios.min():.4f} – {ratios.max():.4f}")
 
-print("\n✅ Procesamiento completado")
+    # Avisar si hay proporciones anómalas
+    anomalas = [(e, r, r_ref, r_cov)
+                for e, r, r_ref, r_cov in zip(energies, ratios, ref_arr, cov_arr)
+                if r > 2.0]
+    if anomalas:
+        print(f"  ⚠ Proporciones > 2 detectadas:")
+        for e, r, r_ref, r_cov in anomalas:
+            print(f"      E={e:.1f} MeV  ratio={r:.4f}  ref={int(r_ref)}  cov={int(r_cov)}")
 
-# ========== IMPRIMIR PROPORCIONES ==========
+# ========== TABLA COMPLETA ==========
 print("\n" + "="*60)
-print("PROPORCIONES DE DETECCIÓN")
+print("PROPORCIONES POR ENERGÍA")
 print("="*60)
 
-print("\nHaz de PROTONES:")
-for E, r in zip(energies_log, ratio_proton):
-    print(f"E = {E:10.3f} MeV   Proporción = {r:.6f}")
+for label, energies, ratios, ref_arr, cov_arr in [
+    ("PROTONES",  energies_p, ratio_proton,  ref_p, cov_p),
+    ("NEUTRONES", energies_n, ratio_neutron, ref_n, cov_n),
+]:
+    print(f"\nHaz de {label}:")
+    print(f"  {'Energía (MeV)':>14}  {'Ref':>6}  {'Cub':>6}  {'Proporción':>10}")
+    print(f"  {'-'*14}  {'-'*6}  {'-'*6}  {'-'*10}")
+    for e, r, r_ref, r_cov in zip(energies, ratios, ref_arr, cov_arr):
+        print(f"  {e:>14.3f}  {int(r_ref):>6}  {int(r_cov):>6}  {r:>10.6f}")
 
-print("\nHaz de NEUTRONES:")
-for E, r in zip(energies_log, ratio_neutron):
-    print(f"E = {E:10.3f} MeV   Proporción = {r:.6f}")
+print("\n✅ Procesamiento completado")

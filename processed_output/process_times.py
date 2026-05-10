@@ -1,3 +1,9 @@
+################################################################################
+# Script que procesa los tiempos de ejecución de cada simulación, generando
+# gráficas de escalado en función del número de partículas y de la energía 
+# además de ajustar las gráficas
+################################################################################
+
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit

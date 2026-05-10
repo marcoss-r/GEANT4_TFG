@@ -1,3 +1,11 @@
+###############################################################################
+# Script que procesa el número de conteos de partículas por cada archivo de 
+# salida csv de Geant4, eliminando partículas con energía inferor a 20 MeV.
+# Genera dos gráficas:
+# 1) Conteo total de partículas detectadas (E ≥ 20 MeV)
+# 2) Conteo de protones y neutrones detectados (E ≥ 20 MeV)
+###############################################################################
+
 import os
 import glob
 import re

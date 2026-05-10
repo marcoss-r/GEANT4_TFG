@@ -1,3 +1,8 @@
+###############################################################################
+# Script para convertir archivos CSV de neutrones a protones, manteniendo el 
+# formato y la energía.
+###############################################################################
+
 import pandas as pd
 from pathlib import Path
 

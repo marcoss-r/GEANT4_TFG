@@ -1,3 +1,9 @@
+################################################################################
+# Script que procesa el número de partículas detectadas por cada archivo de 
+# salida csv de Geant4, generando gráficas para cada partícula detectada en
+# función de la energía del haz incidente.
+################################################################################
+
 import os
 import glob
 import re
