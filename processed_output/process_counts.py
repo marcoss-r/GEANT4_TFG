@@ -74,8 +74,8 @@ def compute_counts_all_particles(directory, energy_threshold=20):
     for energy, filepath in data:
         df = pd.read_csv(filepath, names=COLUMN_NAMES, skiprows=1)
         
-        # Filtrar por energía depositada superior al umbral
-        df_filtered = df[df['DepositedEnergy_MeV'] >= energy_threshold]
+        # Filtrar por energía inicial superior al umbral
+        df_filtered = df[df['InitialEnergy_MeV'] >= energy_threshold]
         
         counts.append(len(df_filtered))
     
@@ -106,7 +106,7 @@ def compute_counts_specific_particles(directory, particle_types=['proton', 'neut
         # Filtrar por tipo de partícula y energía
         df_filtered = df[
             (df['ParticleName'].isin(particle_types)) & 
-            (df['DepositedEnergy_MeV'] >= energy_threshold)
+            (df['InitialEnergy_MeV'] >= energy_threshold)
         ]
         
         counts.append(len(df_filtered))

@@ -13,13 +13,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # ========== CONFIGURACIÓN ==========
-REFERENCE_DIR_PROTON  = "aplicacion5/output_proton"
-REFERENCE_DIR_NEUTRON = "aplicacion5/output_neutron"
+REFERENCE_DIR_PROTON  = "output_ref/output_proton"
+REFERENCE_DIR_NEUTRON = "output_ref/output_neutron"
 
-COVERED_DIR_PROTON    = "aplicacion6/output_proton"
-COVERED_DIR_NEUTRON   = "aplicacion6/output_neutron"
+COVERED_DIR_PROTON    = "output_10cm/output_proton"
+COVERED_DIR_NEUTRON   = "output_10cm/output_neutron"
 
-OUTPUT_DIR = "aplicacion6/output_plots"
+OUTPUT_DIR = "output_10cm/output_plots"
 
 COLUMN_NAMES = [
     'EventID',
@@ -51,7 +51,7 @@ def extract_energy(filename):
 def compute_counts_by_energy(directory, energy_threshold=20):
     """
     Devuelve un dict {energia_MeV: conteo} con solo protones/neutrones
-    con energía depositada >= threshold.
+    con energía inicial >= threshold.
     La clave es la energía real extraída del nombre del archivo.
     """
     files = glob.glob(os.path.join(directory, "*.csv"))
@@ -65,11 +65,11 @@ def compute_counts_by_energy(directory, energy_threshold=20):
         df = pd.read_csv(filepath, names=COLUMN_NAMES, skiprows=1)
 
         # Convertir a numérico por si hay headers duplicados residuales
-        df['DepositedEnergy_MeV'] = pd.to_numeric(df['DepositedEnergy_MeV'], errors='coerce')
+        df['InitialEnergy_MeV'] = pd.to_numeric(df['InitialEnergy_MeV'], errors='coerce')
 
         df_filtered = df[
             (df['ParticleName'].isin(['proton', 'neutron'])) &
-            (df['DepositedEnergy_MeV'] >= energy_threshold)
+            (df['InitialEnergy_MeV'] >= energy_threshold)
         ]
 
         counts[energy] = len(df_filtered)
@@ -132,7 +132,7 @@ plt.legend(fontsize=11)
 plt.tight_layout()
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_5_to_6.png")
+output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_ref_to_10cm.png")
 plt.savefig(output_file, dpi=300)
 print(f"\n✓ Gráfica guardada: {output_file}")
 plt.show()
