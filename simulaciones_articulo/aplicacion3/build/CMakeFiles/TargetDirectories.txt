@@ -1,0 +1,3 @@
+/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/simulaciones_articulo/aplicacion3/build/CMakeFiles/rebuild_cache.dir
+/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/simulaciones_articulo/aplicacion3/build/CMakeFiles/edit_cache.dir
+/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/simulaciones_articulo/aplicacion3/build/CMakeFiles/aplicacion3.dir
