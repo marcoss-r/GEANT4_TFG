@@ -1,60 +1,90 @@
 #!/bin/bash
 
-# Obtener directorio absoluto del proyecto
+# =========================
+# Directorio del proyecto
+# =========================
 PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 
-# Carpetas (ABSOLUTAS)
+# =========================
+# Carpetas
+# =========================
 INPUT_DIR="$PROJECT_DIR/../particlegen/input2"
-OUTPUT_DIR="$PROJECT_DIR/../particlegen/output"
-SRC_DIR="$PROJECT_DIR/src"
+OUTPUT_DIR="$PROJECT_DIR/../processed_output3/aplicaion3"
+
+LOCAL_INPUT_DIR="$PROJECT_DIR/input"
+LOCAL_OUTPUT_DIR="$PROJECT_DIR/output"
+
 BUILD_DIR="$PROJECT_DIR/build"
 
-# Archivos a modificar
-PRIMARY_FILE="$SRC_DIR/PrimaryGenAction.cc"
-DETECTOR_FILE="$SRC_DIR/SensitiveDetector.cc"
-
-# Creación de carpeta output si no existe
+# =========================
+# Crear carpetas necesarias
+# =========================
 mkdir -p "$OUTPUT_DIR"
+mkdir -p "$LOCAL_INPUT_DIR"
+mkdir -p "$LOCAL_OUTPUT_DIR"
 
-# Obtención de todos los CSVs de entrada
+# =========================
+# Compilar SOLO UNA VEZ
+# =========================
+echo "Compilando proyecto..."
+
+mkdir -p "$BUILD_DIR"
+cd "$BUILD_DIR" || exit 1
+
+cmake .. || exit 1
+make -j4 || exit 1
+
+echo "Compilación completada"
+echo ""
+
+# =========================
+# Procesar CSVs
+# =========================
 for INPUT_FILE in "$INPUT_DIR"/*.csv; do
-    
+
     BASENAME=$(basename "$INPUT_FILE")
-    
-    # Generación de nombre de salida
-    OUTPUT_NAME="${BASENAME/input/output}"
-    OUTPUT_FILE="$OUTPUT_DIR/$OUTPUT_NAME"
-    
+
     echo "Procesando: $BASENAME"
-    echo "  Input:  $INPUT_FILE"
-    echo "  Output: $OUTPUT_FILE"
-    
-    # Modificar PrimaryGenAction.cc
-    sed -i "s|LoadParticlesFromCSV(\".*\");|LoadParticlesFromCSV(\"$INPUT_FILE\");|g" "$PRIMARY_FILE"
-    
-    # Modificar SensitiveDetector.cc
-    sed -i "s|fOutputFile.open(\".*\", std::ios::app);|fOutputFile.open(\"$OUTPUT_FILE\", std::ios::app);|g" "$DETECTOR_FILE"
-    
-    # Limpiar y compilar
-    echo "  Compilando..."
-    rm -rf "$BUILD_DIR"
-    mkdir "$BUILD_DIR"
-    cd "$BUILD_DIR"
-    
-    cmake .. > /dev/null
-    make -j4 > /dev/null
-    
-    # Ejecutar
-    echo "  Ejecutando..."
+
+    # ---------------------------------
+    # Copiar como input.csv
+    # ---------------------------------
+    cp "$INPUT_FILE" "$LOCAL_INPUT_DIR/input.csv"
+
+    # ---------------------------------
+    # Ejecutar simulación
+    # ---------------------------------
+    echo "  Ejecutando simulación..."
+
     ./aplicacion3 ../mac_files/run_batch.mac
-    
-    cd "$PROJECT_DIR"
-    
-    echo "  Completado"
+
+    # ---------------------------------
+    # Nombre final del output
+    # input_xxx.csv -> output_xxx.csv
+    # ---------------------------------
+    OUTPUT_NAME="${BASENAME/input/output}"
+
+    # ---------------------------------
+    # Mover output generado
+    # ---------------------------------
+    if [ -f "$LOCAL_OUTPUT_DIR/output.csv" ]; then
+
+        mv "$LOCAL_OUTPUT_DIR/output.csv" \
+           "$OUTPUT_DIR/$OUTPUT_NAME"
+
+        echo "  Output guardado en:"
+        echo "  $OUTPUT_DIR/$OUTPUT_NAME"
+
+    else
+        echo "  ERROR: No se generó output.csv"
+    fi
+
     echo ""
-    
+
 done
 
 echo "Todas las simulaciones terminadas"
-echo "Archivos en: $OUTPUT_DIR"
+echo "Archivos generados en:"
+echo "$OUTPUT_DIR"
+
 ls -lh "$OUTPUT_DIR"

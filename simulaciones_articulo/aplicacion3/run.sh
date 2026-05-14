@@ -9,7 +9,7 @@ PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 # Carpetas
 # =========================
 INPUT_DIR="$PROJECT_DIR/../../particlegen/input_article"
-OUTPUT_DIR="$PROJECT_DIR/../../particlegen/output"
+OUTPUT_DIR="$PROJECT_DIR/../output2/aplicacion3"
 
 LOCAL_INPUT_DIR="$PROJECT_DIR/input"
 LOCAL_OUTPUT_DIR="$PROJECT_DIR/output"
