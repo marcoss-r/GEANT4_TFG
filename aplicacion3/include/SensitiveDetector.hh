@@ -23,7 +23,7 @@ struct ParticleData {
     G4ThreeVector entryMomentum;     /** dirección unitaria */
     G4double totalEnergyDeposit;  /** MeV acumulados */
     G4double globalTime;           /** s, tiempo absoluto de llegada */
-    G4double deltaTime;            /** s, tiempo relativo al track padre
+    G4double deltaTime;            /** s, tiempo relativo al track padre */
 
     /** Constructor por defecto para inicializar la estructura */
     ParticleData()
