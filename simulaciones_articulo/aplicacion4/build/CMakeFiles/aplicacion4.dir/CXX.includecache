@@ -17,7 +17,11 @@ G4Step.hh
 ../include/G4Step.hh
 G4HCofThisEvent.hh
 ../include/G4HCofThisEvent.hh
+G4ThreeVector.hh
+../include/G4ThreeVector.hh
 fstream
+-
+map
 -
 
 /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/simulaciones_articulo/aplicacion4/src/DetConstruction.cc
