@@ -13,9 +13,6 @@ G4bool SensitiveDetector::fFileInitialized = false;
 //Definición de mutex para manejo de archivo en MT
 static G4Mutex fileMutex = G4MUTEX_INITIALIZER;
 
-/* Semáforo para mapa de partículas */
-static G4Mutex mapMutex = G4MUTEX_INITIALIZER;
-
 //Constructor
 SensitiveDetector::SensitiveDetector(const G4String& name)
     : G4VSensitiveDetector(name){
@@ -50,8 +47,8 @@ SensitiveDetector::~SensitiveDetector(){
 /* Método de inicialización llamado al inicio de cada evento */
 void SensitiveDetector::Initialize(G4HCofThisEvent* /*hce*/){
 
-    /* Limpieza del mapa de partículas */
-    fParticleMap.clear();
+    /* Limpieza del vector de partículas */
+    fParticleList.clear();
     fFirstTrackTimeSet = false;
     fFirstTrackTime = 0.;
 }
@@ -60,57 +57,24 @@ void SensitiveDetector::Initialize(G4HCofThisEvent* /*hce*/){
 G4bool SensitiveDetector::ProcessHits(G4Step* step, 
     G4TouchableHistory* /*history*/)
 {
-    /* Checkeo de puntero nulo */
-    if(!step){
-        G4cerr << "Puntero nulo en ProcessHits (step)" << G4endl;
-        return false;
-    }
-
     /* Obtención del track actual y su ID */
     G4Track* track  = step->GetTrack();
+    G4int    trkID  = track->GetTrackID();
 
-    /* Chequeo de puntero nulo */
-    if(!track){
-        G4cerr << "Puntero nulo en ProcessHits (track)" << G4endl;
-        return false;
+    /* Búsqueda del track en el vector por trackID */
+    ParticleData* existing = nullptr;
+    for (ParticleData& pd : fParticleList) {
+        if (pd.trackID == trkID) {
+            existing = &pd;
+            break;
+        }
     }
 
-    /* Obtención del punto previo */
-    G4StepPoint* prePoint = step->GetPreStepPoint();
-    /* Chequeo de puntero nulo */
-    if (!prePoint) {
-        G4cerr << "Puntero nulo en ProcessHits (prePoint)" << G4endl;
-        return false;
-    }
+    /* Si el track no ha interactuado antes con el detector, se registra */
+    if (existing == nullptr) {
 
-    /* Chequeo de puntero nulo para obtener tipo de partícula */
-    if (!track->GetDefinition()) {
-        G4cerr << "Puntero nulo en ProcessHits (track->GetDefinition())" << G4endl;
-        return false;
-    }
-
-    G4RunManager* rm = G4RunManager::GetRunManager();
-    /* Chequeo de puntero nulo para obtener RunManager */
-    if (!rm) {
-        G4cerr << "Puntero nulo en ProcessHits (G4RunManager)" << G4endl;
-        return false;
-    }
-
-    const G4Event* currentEvent = rm->GetCurrentEvent();
-    if (!currentEvent) {
-        G4cerr << "Puntero nulo en ProcessHits (G4RunManager->GetCurrentEvent())" << G4endl;
-        return false;
-    }
-
-    G4int trkID  = track->GetTrackID();
-
-    G4AutoLock lock(&mapMutex);
-
-    /* Comprobación por si el track ya ha interactuado con el detector */
-    if (fParticleMap.find(trkID) == fParticleMap.end()) {
-
-        /* Get global time*/
-        G4double globalTime = prePoint->GetGlobalTime();
+        /* Get global time */
+        G4double globalTime = step->GetPreStepPoint()->GetGlobalTime();
 
         /* Check for the first hit */
         if(!fFirstTrackTimeSet){
@@ -118,9 +82,13 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
             fFirstTrackTimeSet = true;
         }
 
+        const G4int eventID =
+            G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
+
+        G4StepPoint* prePoint = step->GetPreStepPoint();
 
         ParticleData pd;
-        pd.eventID = currentEvent->GetEventID();
+        pd.eventID = eventID;
         pd.trackID = trkID;
         pd.parentID = track->GetParentID();
         pd.particleName = track->GetDefinition()->GetParticleName();
@@ -131,7 +99,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
         pd.globalTime = globalTime;
         pd.deltaTime = globalTime - fFirstTrackTime;
 
-        fParticleMap[trkID] = pd;
+        fParticleList.push_back(pd);
 
         G4cout << " Nueva partícula " << trkID
                << " (parent=" << pd.parentID << ") "
@@ -139,11 +107,12 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
                << " E=" << pd.initialEnergy << " MeV"
                << G4endl;
     }
-
-    /* Acumulación de energía depositada */
-    G4double edep = step->GetTotalEnergyDeposit() / MeV;
-    if (edep > 0.)
-        fParticleMap[trkID].totalEnergyDeposit += edep;
+    else {
+        /* Acumulación de energía depositada en el track existente */
+        G4double edep = step->GetTotalEnergyDeposit() / MeV;
+        if (edep > 0.)
+            existing->totalEnergyDeposit += edep;
+    }
 
     return true;
 }
@@ -151,22 +120,21 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
 /* Finalización del evento con escritura de datos al CSV */
 void SensitiveDetector::EndOfEvent(G4HCofThisEvent* /*hce*/)
 {
-    G4AutoLock lock(&mapMutex);
-    if (fParticleMap.empty())
+    if (fParticleList.empty())
         return;
 
     G4AutoLock lock(&fileMutex);
 
     /* Escritura de cada partícula  con bucle */
-    for (const auto& kv : fParticleMap) {
-        WriteRow(kv.second);
+    for (const ParticleData& pd : fParticleList) {
+        WriteRow(pd);
     }
 
     fOutputFile.flush();
 
     G4cout << " Evento "
-           << fParticleMap.begin()->second.eventID
-           << ": " << fParticleMap.size() << " partículas contadas."
+           << fParticleList.front().eventID
+           << ": " << fParticleList.size() << " partículas contadas."
            << G4endl;
 }
 

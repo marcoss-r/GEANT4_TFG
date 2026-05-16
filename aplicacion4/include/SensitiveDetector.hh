@@ -7,10 +7,10 @@
 #include "G4HCofThisEvent.hh"
 #include "G4ThreeVector.hh"
 #include <fstream>
-#include <map>
+#include <vector>
 
 /** Estructura para almacenar datos de cada partícula (ya sea primaria o 
- * secundaria) que se almacenará en el mapa */
+ * secundaria) que se almacenará en la lista */
 struct ParticleData {
     G4int eventID;    /** ID del evento (partícula primaria) */
     G4int trackID;    /** ID del track (partícula concreta, primaria o 
@@ -44,9 +44,9 @@ public:
     void   EndOfEvent(G4HCofThisEvent* hce) override;
 
 private:
-    /** Mapa que guarda los datos de la estructura ParticleData para cada
+    /** Lista que guarda los datos de la estructura ParticleData para cada
      *  trackID que ha interactuado con el detector. */
-    std::map<G4int, ParticleData> fParticleMap;
+    std::vector<ParticleData> fParticleList;
 
     /** Recurso compartido entre hilos para la inicialización del archivo CSV */
     static std::ofstream fOutputFile;
