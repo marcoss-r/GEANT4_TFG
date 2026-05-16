@@ -29,7 +29,7 @@ SensitiveDetector::SensitiveDetector(const G4String& name)
         /* Escritura de cabecera */
         fOutputFile
             << "EventID,TrackID,ParentID,ParticleName,"
-            << "Initial_Energy_MeV,Total_Energy_Deposit_MeV,"
+            << "Initial_Energy_MeV," // << "Total_Energy_Deposit_MeV,"
             << "PosX_m,PosY_m,PosZ_m,"
             << "Theta_deg,Phi_deg,"
             << "MomX,MomY,MomZ,"
@@ -88,7 +88,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
         pd.initialEnergy = prePoint->GetKineticEnergy() / MeV;
         pd.entryPosition = prePoint->GetPosition();
         pd.entryMomentum = prePoint->GetMomentumDirection();
-        pd.totalEnergyDeposit = 0.;
+        //pd.totalEnergyDeposit = 0.;
         // pd.globalTime = globalTime;
         // pd.deltaTime = globalTime - fFirstTrackTime;
 
@@ -102,9 +102,9 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
     }
 
     /* Acumulación de energía depositada */
-    G4double edep = step->GetTotalEnergyDeposit() / MeV;
-    if (edep > 0.)
-        fParticleMap[trkID].totalEnergyDeposit += edep;
+    // G4double edep = step->GetTotalEnergyDeposit() / MeV;
+    // if (edep > 0.)
+    //     fParticleMap[trkID].totalEnergyDeposit += edep;
 
     return true;
 }
@@ -147,7 +147,7 @@ void SensitiveDetector::WriteRow(const ParticleData& pd)
         << pd.particleName << ","
         << std::fixed << std::setprecision(6)
         << pd.initialEnergy          << ","
-        << pd.totalEnergyDeposit     << ","
+        // << pd.totalEnergyDeposit     << ","
         << x     << "," << y     << "," << z   << ","
         << theta << "," << phi   << ","
         << pd.entryMomentum.x() << ","

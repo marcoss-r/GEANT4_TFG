@@ -21,14 +21,14 @@ struct ParticleData {
     G4double initialEnergy;       /** MeV, en el primer step del track */
     G4ThreeVector entryPosition;     /** m */
     G4ThreeVector entryMomentum;     /** dirección unitaria */
-    G4double totalEnergyDeposit;  /** MeV acumulados */
+    //G4double totalEnergyDeposit;  /** MeV acumulados */
     // G4double globalTime;           /** s, tiempo absoluto de llegada */
     // G4double deltaTime;            /** s, tiempo relativo al track padre */
 
     /** Constructor por defecto para inicializar la estructura */
     ParticleData()
         : eventID(-1), trackID(-1), parentID(-1),
-          initialEnergy(0.), totalEnergyDeposit(0.)
+          initialEnergy(0.)//, totalEnergyDeposit(0.)
           //, globalTime(0.), deltaTime(0.) 
           {}
 };
