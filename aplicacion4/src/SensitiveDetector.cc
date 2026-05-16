@@ -57,15 +57,55 @@ void SensitiveDetector::Initialize(G4HCofThisEvent* /*hce*/){
 G4bool SensitiveDetector::ProcessHits(G4Step* step, 
     G4TouchableHistory* /*history*/)
 {
+    /* Checkeo de puntero nulo */
+    if(!step){
+        G4cerr << "Puntero nulo en ProcessHits (step)" << G4endl;
+        return false;
+    }
+
     /* Obtención del track actual y su ID */
     G4Track* track  = step->GetTrack();
-    G4int    trkID  = track->GetTrackID();
+
+    /* Chequeo de puntero nulo */
+    if(!track){
+        G4cerr << "Puntero nulo en ProcessHits (track)" << G4endl;
+        return false;
+    }
+
+    /* Obtención del punto previo */
+    G4StepPoint* prePoint = step->GetPreStepPoint();
+    /* Chequeo de puntero nulo */
+    if (!prePoint) {
+        G4cerr << "Puntero nulo en ProcessHits (prePoint)" << G4endl;
+        return false;
+    }
+
+    /* Chequeo de puntero nulo para obtener tipo de partícula */
+    if (!track->GetDefinition()) {
+        G4cerr << "Puntero nulo en ProcessHits (track->GetDefinition())" << G4endl;
+        return false;
+    }
+
+    G4RunManager* rm = G4RunManager::GetRunManager();
+    /* Chequeo de puntero nulo para obtener RunManager */
+    if (!rm) {
+        G4cerr << "Puntero nulo en ProcessHits (G4RunManager)" << G4endl;
+        return false;
+    }
+
+    const G4Event* currentEvent = rm->GetCurrentEvent();
+    if (!currentEvent) {
+        G4cerr << "Puntero nulo en ProcessHits (G4RunManager->GetCurrentEvent())" << G4endl;
+        return false;
+    }
+
+    G4int trkID  = track->GetTrackID();
 
     /* Comprobación por si el track ya ha interactuado con el detector */
     if (fParticleMap.find(trkID) == fParticleMap.end()) {
 
         /* Get global time*/
-        G4double globalTime = step->GetPreStepPoint()->GetGlobalTime();
+        G4double globalTime = prePoint->GetGlobalTime();
 
         /* Check for the first hit */
         if(!fFirstTrackTimeSet){
@@ -73,13 +113,9 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
             fFirstTrackTimeSet = true;
         }
 
-        const G4int eventID =
-            G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
-
-        G4StepPoint* prePoint = step->GetPreStepPoint();
 
         ParticleData pd;
-        pd.eventID = eventID;
+        pd.eventID = currentEvent->GetEventID();
         pd.trackID = trkID;
         pd.parentID = track->GetParentID();
         pd.particleName = track->GetDefinition()->GetParticleName();
