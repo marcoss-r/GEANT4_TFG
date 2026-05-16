@@ -13,6 +13,9 @@ G4bool SensitiveDetector::fFileInitialized = false;
 //Definición de mutex para manejo de archivo en MT
 static G4Mutex fileMutex = G4MUTEX_INITIALIZER;
 
+/* Semáforo para mapa de partículas */
+static G4Mutex mapMutex = G4MUTEX_INITIALIZER;
+
 //Constructor
 SensitiveDetector::SensitiveDetector(const G4String& name)
     : G4VSensitiveDetector(name){
@@ -101,6 +104,8 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
 
     G4int trkID  = track->GetTrackID();
 
+    G4AutoLock lock(&mapMutex);
+
     /* Comprobación por si el track ya ha interactuado con el detector */
     if (fParticleMap.find(trkID) == fParticleMap.end()) {
 
@@ -146,6 +151,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
 /* Finalización del evento con escritura de datos al CSV */
 void SensitiveDetector::EndOfEvent(G4HCofThisEvent* /*hce*/)
 {
+    G4AutoLock lock(&mapMutex);
     if (fParticleMap.empty())
         return;
 
