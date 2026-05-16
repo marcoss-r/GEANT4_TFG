@@ -2,158 +2,161 @@
 #include "G4Track.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4RunManager.hh"
-#include <iomanip>
 #include "G4AutoLock.hh"
-#include "G4EventManager.hh"
 
+#include <iomanip>
+#include <fstream>
 
-//Definición de variables estáticas
+// Definición de variables estáticas
 std::ofstream SensitiveDetector::fOutputFile;
 G4bool SensitiveDetector::fFileInitialized = false;
 
-//Definición de mutex para manejo de archivo en MT
+// Definición de mutex para manejo de archivo en MT
 static G4Mutex fileMutex = G4MUTEX_INITIALIZER;
 
-//Constructor
+// Constructor
 SensitiveDetector::SensitiveDetector(const G4String& name)
-    : G4VSensitiveDetector(name){
-    
-    /* Bloqueo del semáforo */
+    : G4VSensitiveDetector(name),
+      fHasEntry(false),
+      fInitialEnergy(0),
+      fTotalEnergyDeposit(0),
+      fEventID(-1)
+{
     G4AutoLock lock(&fileMutex);
-    if(!fFileInitialized){
-        /* Abrir archivo CSV en modo agregar (dos strings se concatenan) */
-        fOutputFile.open("/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/"
-            "aplicacion3/output/output.csv", 
-            std::ios::app);
 
-        /* Escritura de cabecera */
+    if (!fFileInitialized)
+    {
+        // Abrir archivo CSV en modo agregar
+        fOutputFile.open(
+            "/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/"
+            "simulaciones_articulo/aplicacion4/output/output.csv",
+            std::ios::app
+        );
+
+        // Escritura de cabecera
         fOutputFile
-            << "EventID,TrackID,ParentID,ParticleName,"
-            << "Initial_Energy_MeV," // << "Total_Energy_Deposit_MeV,"
-            << "PosX_m,PosY_m,PosZ_m,"
-            << "Theta_deg,Phi_deg,"
-            << "MomX,MomY,MomZ,"
-            // << "GlobalTime_s,DeltaTime_s"
-            << "\n";
-        
-        /* Archivo inicializado */
+            << "EventID,ParticleName,Initial_Energy_MeV,"
+            << "Total_Energy_Deposit_MeV,PosX_m,PosY_m,PosZ_m,"
+            << "Theta_deg,Phi_deg,MomX,MomY,MomZ\n";
+
         fFileInitialized = true;
+
         G4cout << "CSV file initialized" << G4endl;
     }
 }
 
-/* Destructor */
-SensitiveDetector::~SensitiveDetector(){
-
-}
-
-/* Método de inicialización llamado al inicio de cada evento */
-void SensitiveDetector::Initialize(G4HCofThisEvent* /*hce*/){
-
-    /* Limpieza del mapa de partículas */
-    fParticleMap.clear();
-    // fFirstTrackTimeSet = false;
-    // fFirstTrackTime = 0.;
-    fCurrentEventID = 
-            G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
-}
-
-//Procesamiento de hits
-G4bool SensitiveDetector::ProcessHits(G4Step* step, 
-    G4TouchableHistory* /*history*/)
+// Destructor
+SensitiveDetector::~SensitiveDetector()
 {
-    /* Obtención del track actual y su ID */
-    G4Track* track  = step->GetTrack();
-    G4int    trkID  = track->GetTrackID();
+}
 
-    /* Comprobación por si el track ya ha interactuado con el detector */
-    if (fParticleMap.find(trkID) == fParticleMap.end()) {
+// Método de inicialización llamado al inicio de cada evento
+void SensitiveDetector::Initialize(G4HCofThisEvent* hce)
+{
+    fHasEntry = false;
+    fTotalEnergyDeposit = 0;
 
-        // /* Get global time*/
-        // G4double globalTime = step->GetPreStepPoint()->GetGlobalTime();
+    fEventID =
+        G4RunManager::GetRunManager()
+            ->GetCurrentEvent()
+            ->GetEventID();
+}
 
-        // /* Check for the first hit */
-        // if(!fFirstTrackTimeSet){
-        //     fFirstTrackTime = globalTime;
-        //     fFirstTrackTimeSet = true;
-        // }
+// Procesamiento de hits
+G4bool SensitiveDetector::ProcessHits(
+    G4Step* step,
+    G4TouchableHistory* history)
+{
+    G4Track* track = step->GetTrack();
 
-        G4StepPoint* prePoint = step->GetPreStepPoint();
+    // Registro de la entrada al detector
+    if (!fHasEntry &&
+        step->GetPreStepPoint()->GetStepStatus() == fGeomBoundary)
+    {
+        fHasEntry = true;
 
-        ParticleData pd;
-        pd.eventID = fCurrentEventID;
-        pd.trackID = trkID;
-        pd.parentID = track->GetParentID();
-        pd.particleName = track->GetDefinition()->GetParticleName();
-        pd.initialEnergy = prePoint->GetKineticEnergy() / MeV;
-        pd.entryPosition = prePoint->GetPosition();
-        pd.entryMomentum = prePoint->GetMomentumDirection();
-        //pd.totalEnergyDeposit = 0.;
-        // pd.globalTime = globalTime;
-        // pd.deltaTime = globalTime - fFirstTrackTime;
+        // Guardar información de entrada
+        fParticleName =
+            track->GetDefinition()->GetParticleName();
 
-        fParticleMap[trkID] = pd;
+        fInitialEnergy =
+            step->GetPreStepPoint()->GetKineticEnergy() / MeV;
 
-        G4cout << " Nueva partícula " << trkID
-               << " (parent=" << pd.parentID << ") "
-               << pd.particleName
-               << " E=" << pd.initialEnergy << " MeV"
-               << G4endl;
+        fEntryPosition =
+            step->GetPreStepPoint()->GetPosition();
+
+        fEntryMomentum =
+            step->GetPreStepPoint()->GetMomentumDirection();
+
+        G4cout
+            << "Particle entered: "
+            << fParticleName
+            << " with E="
+            << fInitialEnergy
+            << " MeV"
+            << G4endl;
     }
 
-    /* Acumulación de energía depositada */
-    // G4double edep = step->GetTotalEnergyDeposit() / MeV;
-    // if (edep > 0.)
-    //     fParticleMap[trkID].totalEnergyDeposit += edep;
+    // Cálculo de energía total depositada
+    G4double energyDeposit =
+        step->GetTotalEnergyDeposit() / MeV;
+
+    // Solo guardamos energía depositada si es mayor que cero
+    if (energyDeposit > 0)
+    {
+        fTotalEnergyDeposit += energyDeposit;
+    }
 
     return true;
 }
 
-/* Finalización del evento con escritura de datos al CSV */
-void SensitiveDetector::EndOfEvent(G4HCofThisEvent* /*hce*/)
+// Finalización del evento con escritura de datos al CSV
+void SensitiveDetector::EndOfEvent(G4HCofThisEvent* hce)
 {
-    if (fParticleMap.empty())
+    if (!fHasEntry)
+    {
         return;
-
-    G4AutoLock lock(&fileMutex);
-
-    /* Escritura de cada partícula  con bucle */
-    for (const auto& kv : fParticleMap) {
-        WriteRow(kv.second);
     }
 
-    fOutputFile.flush();
+    // Ángulos en grados
+    G4double theta = fEntryMomentum.theta() / deg;
+    G4double phi   = fEntryMomentum.phi() / deg;
 
-    G4cout << " Evento "
-           << fParticleMap.begin()->second.eventID
-           << ": " << fParticleMap.size() << " partículas contadas."
-           << G4endl;
-}
+    // Posición en metros
+    G4double x = fEntryPosition.x() / m;
+    G4double y = fEntryPosition.y() / m;
+    G4double z = fEntryPosition.z() / m;
 
-/* Escribe una línea CSV para el ParticleData dado (para cada partícula) */
-void SensitiveDetector::WriteRow(const ParticleData& pd)
-{
-    // Conversión de unidades
-    G4double x     = pd.entryPosition.x() / m;
-    G4double y     = pd.entryPosition.y() / m;
-    G4double z     = pd.entryPosition.z() / m;
-    G4double theta = pd.entryMomentum.theta() / deg;
-    G4double phi   = pd.entryMomentum.phi()   / deg;
+    // Escritura CSV protegida por mutex para MT
+    G4AutoLock lock(&fileMutex);
 
     fOutputFile
-        << pd.eventID      << ","
-        << pd.trackID      << ","
-        << pd.parentID     << ","
-        << pd.particleName << ","
+        << fEventID << ","
+        << fParticleName << ","
         << std::fixed << std::setprecision(6)
-        << pd.initialEnergy          << ","
-        // << pd.totalEnergyDeposit     << ","
-        << x     << "," << y     << "," << z   << ","
-        << theta << "," << phi   << ","
-        << pd.entryMomentum.x() << ","
-        << pd.entryMomentum.y() << ","
-        << pd.entryMomentum.z() << ","
-        // << pd.globalTime / ns << ","
-        // << pd.deltaTime / ns
+        << fInitialEnergy << ","
+        << fTotalEnergyDeposit << ","
+        << x << ","
+        << y << ","
+        << z << ","
+        << theta << ","
+        << phi << ","
+        << fEntryMomentum.x() << ","
+        << fEntryMomentum.y() << ","
+        << fEntryMomentum.z()
         << "\n";
+
+    // Debug
+    G4cout
+        << "Event "
+        << fEventID
+        << " finished: "
+        << fParticleName
+        << " deposited "
+        << fTotalEnergyDeposit
+        << " MeV total"
+        << G4endl;
+
+    // Forzamos el volcado en el archivo
+    fOutputFile.flush();
 }
