@@ -25,6 +25,7 @@ SensitiveDetector::SensitiveDetector(const G4String& name)
         fOutputFile.open("/home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/"
             "aplicacion3/output/output.csv", 
             std::ios::app);
+
         /* Escritura de cabecera */
         fOutputFile
             << "EventID,TrackID,ParentID,ParticleName,"
@@ -32,7 +33,8 @@ SensitiveDetector::SensitiveDetector(const G4String& name)
             << "PosX_m,PosY_m,PosZ_m,"
             << "Theta_deg,Phi_deg,"
             << "MomX,MomY,MomZ,"
-            << "GlobalTime_s,DeltaTime_s\n";
+            // << "GlobalTime_s,DeltaTime_s"
+            << "\n";
         
         /* Archivo inicializado */
         fFileInitialized = true;
@@ -50,8 +52,8 @@ void SensitiveDetector::Initialize(G4HCofThisEvent* /*hce*/){
 
     /* Limpieza del mapa de partículas */
     fParticleMap.clear();
-    fFirstTrackTimeSet = false;
-    fFirstTrackTime = 0.;
+    // fFirstTrackTimeSet = false;
+    // fFirstTrackTime = 0.;
     fCurrentEventID = 
             G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
 }
@@ -67,14 +69,14 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
     /* Comprobación por si el track ya ha interactuado con el detector */
     if (fParticleMap.find(trkID) == fParticleMap.end()) {
 
-        /* Get global time*/
-        G4double globalTime = step->GetPreStepPoint()->GetGlobalTime();
+        // /* Get global time*/
+        // G4double globalTime = step->GetPreStepPoint()->GetGlobalTime();
 
-        /* Check for the first hit */
-        if(!fFirstTrackTimeSet){
-            fFirstTrackTime = globalTime;
-            fFirstTrackTimeSet = true;
-        }
+        // /* Check for the first hit */
+        // if(!fFirstTrackTimeSet){
+        //     fFirstTrackTime = globalTime;
+        //     fFirstTrackTimeSet = true;
+        // }
 
         G4StepPoint* prePoint = step->GetPreStepPoint();
 
@@ -87,8 +89,8 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
         pd.entryPosition = prePoint->GetPosition();
         pd.entryMomentum = prePoint->GetMomentumDirection();
         pd.totalEnergyDeposit = 0.;
-        pd.globalTime = globalTime;
-        pd.deltaTime = globalTime - fFirstTrackTime;
+        // pd.globalTime = globalTime;
+        // pd.deltaTime = globalTime - fFirstTrackTime;
 
         fParticleMap[trkID] = pd;
 
@@ -151,7 +153,7 @@ void SensitiveDetector::WriteRow(const ParticleData& pd)
         << pd.entryMomentum.x() << ","
         << pd.entryMomentum.y() << ","
         << pd.entryMomentum.z() << ","
-        << pd.globalTime / ns << ","
-        << pd.deltaTime / ns
+        // << pd.globalTime / ns << ","
+        // << pd.deltaTime / ns
         << "\n";
 }
