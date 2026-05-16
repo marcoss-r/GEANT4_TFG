@@ -4,6 +4,7 @@
 #include "G4RunManager.hh"
 #include <iomanip>
 #include "G4AutoLock.hh"
+#include "G4EventManager.hh"
 
 
 //Definición de variables estáticas
@@ -51,6 +52,8 @@ void SensitiveDetector::Initialize(G4HCofThisEvent* /*hce*/){
     fParticleMap.clear();
     fFirstTrackTimeSet = false;
     fFirstTrackTime = 0.;
+    fCurrentEventID = 
+            G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
 }
 
 //Procesamiento de hits
@@ -73,13 +76,10 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
             fFirstTrackTimeSet = true;
         }
 
-        const G4int eventID =
-            G4RunManager::GetRunManager()->GetCurrentEvent()->GetEventID();
-
         G4StepPoint* prePoint = step->GetPreStepPoint();
 
         ParticleData pd;
-        pd.eventID = eventID;
+        pd.eventID = fCurrentEventID;
         pd.trackID = trkID;
         pd.parentID = track->GetParentID();
         pd.particleName = track->GetDefinition()->GetParticleName();

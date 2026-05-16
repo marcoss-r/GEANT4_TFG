@@ -57,6 +57,8 @@ private:
                                 *  evento */
     G4bool fFirstTrackTimeSet; /** Flag para saber si se ha registrado el
                                 *  tiempo del primer track */
+
+    G4int fCurrentEventID; /** ID del evento actual */
                                
     /** Declaración del método para escribir una fila en el CSV */
     void WriteRow(const ParticleData& pd);
