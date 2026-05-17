@@ -3,45 +3,37 @@
 
 #include "G4VSensitiveDetector.hh"
 #include "G4Step.hh"
+//Colección de hits del evento actual
 #include "G4HCofThisEvent.hh"
 #include "G4ThreeVector.hh"
-
 #include <fstream>
+#include <vector>
 
 class SensitiveDetector : public G4VSensitiveDetector
 {
 public:
-    // Constructor y destructor
-    SensitiveDetector(const G4String& name);
+    explicit SensitiveDetector(const G4String& name);
     ~SensitiveDetector() override;
 
-    // Métodos de la clase
-    void Initialize(G4HCofThisEvent* hce) override;
-
-    G4bool ProcessHits(
-        G4Step* step,
-        G4TouchableHistory* history
-    ) override;
-
-    void EndOfEvent(G4HCofThisEvent* hce) override;
+    /** Interfaz G4VSensitiveDetector */
+    void   Initialize(G4HCofThisEvent* hce) override;
+    G4bool ProcessHits(G4Step* step, G4TouchableHistory* history) override;
+    void   EndOfEvent(G4HCofThisEvent* hce) override;
 
 private:
-    // Variables para almacenar información del hit
-    G4bool fHasEntry;
 
-    G4String fParticleName;
-
-    G4double fInitialEnergy;
-    G4double fTotalEnergyDeposit;
-
-    G4ThreeVector fEntryPosition;
-    G4ThreeVector fEntryMomentum;
-
-    G4int fEventID;
-
-    // Variables estáticas para manejo de archivo CSV y MT
+    /** Recurso compartido entre hilos para la inicialización del archivo CSV */
     static std::ofstream fOutputFile;
     static G4bool fFileInitialized;
+
+    /** Recursos para medir el tiempo */
+    G4double fFirstTrackTime;  /** Tiempo del primer track registrado en el 
+                                *  evento */
+    G4bool fFirstTrackTimeSet; /** Flag para saber si se ha registrado el
+                                *  tiempo del primer track */
+                               
+    /* Id del evento actual */
+    G4int fEventID;
 };
 
-#endif
+#endif // SENSITIVEDETECTOR_HH

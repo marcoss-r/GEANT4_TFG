@@ -6,14 +6,14 @@
 #include "G4AutoLock.hh"
 
 
-//Definición de variables estáticas
+/* Definición de variables estáticas */
 std::ofstream SensitiveDetector::fOutputFile;
 G4bool SensitiveDetector::fFileInitialized = false;
 
-//Definición de mutex para manejo de archivo en MT
+/* Definición de mutex para manejo de archivo en MT */
 static G4Mutex fileMutex = G4MUTEX_INITIALIZER;
 
-//Constructor
+/* Constructor */
 SensitiveDetector::SensitiveDetector(const G4String& name)
     : G4VSensitiveDetector(name),
       fEventID(-1),
@@ -58,7 +58,7 @@ void SensitiveDetector::Initialize(G4HCofThisEvent* /*hce*/){
    
 }
 
-//Procesamiento de hits
+/* Procesamiento de hits */
 G4bool SensitiveDetector::ProcessHits(G4Step* step, 
     G4TouchableHistory* /*history*/)
 {
@@ -83,11 +83,11 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step,
     G4double deltaTime = globalTime - fFirstTrackTime;
 
     /* Conversión de unidades */
-    G4double x     = prePoint->GetPosition().x() / m;
-    G4double y     = prePoint->GetPosition().y() / m;
-    G4double z     = prePoint->GetPosition().z() / m;
+    G4double x = prePoint->GetPosition().x() / m;
+    G4double y = prePoint->GetPosition().y() / m;
+    G4double z = prePoint->GetPosition().z() / m;
     G4double theta = prePoint->GetMomentumDirection().theta() / deg;
-    G4double phi   = prePoint->GetMomentumDirection().phi()   / deg;
+    G4double phi = prePoint->GetMomentumDirection().phi() / deg;
 
     /* Escritura CSV protegida por mutex para MT */
     G4AutoLock lock(&fileMutex);
