@@ -9,29 +9,6 @@
 #include <fstream>
 #include <vector>
 
-/** Estructura para almacenar datos de cada partícula (ya sea primaria o 
- * secundaria) que se almacenará en la lista */
-struct ParticleData {
-    G4int eventID;    /** ID del evento (partícula primaria) */
-    G4int trackID;    /** ID del track (partícula concreta, primaria o 
-                       *  secundaria) */
-    G4int parentID;   /** ID del track padre (0 para primarias, TrackID
-                        *  de la partícula madre para secundarias) */
-    G4String particleName;
-    G4double initialEnergy;       /** MeV, en el primer step del track */
-    G4ThreeVector entryPosition;     /** m */
-    G4ThreeVector entryMomentum;     /** dirección unitaria */
-    G4double totalEnergyDeposit;  /** MeV acumulados */
-    G4double globalTime;           /** s, tiempo absoluto de llegada */
-    G4double deltaTime;            /** s, tiempo relativo al track padre */
-
-    /** Constructor por defecto para inicializar la estructura */
-    ParticleData()
-        : eventID(-1), trackID(-1), parentID(-1),
-          initialEnergy(0.), totalEnergyDeposit(0.), globalTime(0.), 
-          deltaTime(0.) {}
-};
-
 class SensitiveDetector : public G4VSensitiveDetector
 {
 public:
@@ -44,9 +21,6 @@ public:
     void   EndOfEvent(G4HCofThisEvent* hce) override;
 
 private:
-    /** Lista que guarda los datos de la estructura ParticleData para cada
-     *  trackID que ha interactuado con el detector. */
-    std::vector<ParticleData> fParticleList;
 
     /** Recurso compartido entre hilos para la inicialización del archivo CSV */
     static std::ofstream fOutputFile;
@@ -58,8 +32,8 @@ private:
     G4bool fFirstTrackTimeSet; /** Flag para saber si se ha registrado el
                                 *  tiempo del primer track */
                                
-    /** Declaración del método para escribir una fila en el CSV */
-    void WriteRow(const ParticleData& pd);
+    /* Id del evento actual */
+    G4int fEventID;
 };
 
 #endif // SENSITIVEDETECTOR_HH
