@@ -21,7 +21,7 @@ G4ThreeVector.hh
 ../include/G4ThreeVector.hh
 fstream
 -
-map
+vector
 -
 
 /home/geant/Desktop/Marcos_TFG_GEANT/git/GEANT4_TFG/simulaciones_articulo/aplicacion3/src/DetConstruction.cc
