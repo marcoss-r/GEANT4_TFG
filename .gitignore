@@ -1,6 +1,8 @@
 **/build/
 **/output_proton/
 **/output_neutron/
+**/output_muon-/
+**/output_muon+/
 
 
 

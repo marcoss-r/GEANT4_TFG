@@ -1,2 +1,0 @@
-EventID,TrackID,ParentID,ParticleName,Initial_Energy_MeV,PosX_m,PosY_m,PosZ_m,Theta_deg,Phi_deg,MomX,MomY,MomZ,GlobalTime_s,DeltaTime_s
-3470,4252,1,gamma,2.140776,-1.643315,-92.000000,-2.978540,92.241182,-91.481217,-0.025829,-0.998901,-0.039106,971.330480,0.000000

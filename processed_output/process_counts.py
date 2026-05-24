@@ -24,9 +24,10 @@ E_MAX = 30000    # MeV
 # Columnas de los CSVs generados
 COLUMN_NAMES = [
     'EventID',
+    'TrackID',
+    'ParentID',
     'ParticleName',
-    'InitialEnergy_MeV',
-    'DepositedEnergy_MeV',
+    'Initial_Energy_MeV',
     'PosX_m',
     'PosY_m',
     'PosZ_m',
@@ -34,7 +35,9 @@ COLUMN_NAMES = [
     'Phi_deg',
     'MomX',
     'MomY',
-    'MomZ'
+    'MomZ',
+    'GlobalTime_s',
+    'DeltaTime_s'
 ]
 # ========== FUNCIONES ==========
 
@@ -75,7 +78,7 @@ def compute_counts_all_particles(directory, energy_threshold=20):
         df = pd.read_csv(filepath, names=COLUMN_NAMES, skiprows=1)
         
         # Filtrar por energía inicial superior al umbral
-        df_filtered = df[df['InitialEnergy_MeV'] >= energy_threshold]
+        df_filtered = df[df['Initial_Energy_MeV'] >= energy_threshold]
         
         counts.append(len(df_filtered))
     
@@ -106,7 +109,7 @@ def compute_counts_specific_particles(directory, particle_types=['proton', 'neut
         # Filtrar por tipo de partícula y energía
         df_filtered = df[
             (df['ParticleName'].isin(particle_types)) & 
-            (df['InitialEnergy_MeV'] >= energy_threshold)
+            (df['Initial_Energy_MeV'] >= energy_threshold)
         ]
         
         counts.append(len(df_filtered))

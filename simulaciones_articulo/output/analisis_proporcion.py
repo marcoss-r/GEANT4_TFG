@@ -11,12 +11,12 @@ REFERENCE_DIR_NEUTRON = "output_ref/output_neutron"
 REFERENCE_DIR_MUON_P  = "output_ref/output_muon+"
 REFERENCE_DIR_MUON_M  = "output_ref/output_muon-"
 
-COVERED_DIR_PROTON    = "output_80cm/output_proton"
-COVERED_DIR_NEUTRON   = "output_80cm/output_neutron"
-COVERED_DIR_MUON_P    = "output_80cm/output_muon+"
-COVERED_DIR_MUON_M    = "output_80cm/output_muon-"
+COVERED_DIR_PROTON    = "output_50cm/output_proton"
+COVERED_DIR_NEUTRON   = "output_50cm/output_neutron"
+COVERED_DIR_MUON_P    = "output_50cm/output_muon+"
+COVERED_DIR_MUON_M    = "output_50cm/output_muon-"
 
-OUTPUT_DIR = "output_80cm/output_plots"
+OUTPUT_DIR = "output_50cm/output_plots"
 
 # ── Umbral de energía ─────────────────────────────────────
 USE_ENERGY_THRESHOLD = False
@@ -25,9 +25,10 @@ ENERGY_THRESHOLD_MEV = 20
 
 COLUMN_NAMES = [
     'EventID',
+    'TrackID',
+    'ParentID',
     'ParticleName',
-    'InitialEnergy_MeV',
-    'DepositedEnergy_MeV',
+    'Initial_Energy_MeV',
     'PosX_m',
     'PosY_m',
     'PosZ_m',
@@ -35,7 +36,9 @@ COLUMN_NAMES = [
     'Phi_deg',
     'MomX',
     'MomY',
-    'MomZ'
+    'MomZ',
+    'GlobalTime_s',
+    'DeltaTime_s'
 ]
 
 # =========================================================
@@ -144,8 +147,8 @@ def compute_counts_by_energy(
         )
 
         # Conversión segura
-        df['InitialEnergy_MeV'] = pd.to_numeric(
-            df['InitialEnergy_MeV'],
+        df['Initial_Energy_MeV'] = pd.to_numeric(
+            df['Initial_Energy_MeV'],
             errors='coerce'
         )
 
@@ -164,7 +167,7 @@ def compute_counts_by_energy(
 
         if use_threshold:
             mask &= (
-                df['InitialEnergy_MeV'] >= energy_threshold
+                df['Initial_Energy_MeV'] >= energy_threshold
             )
 
         counts[energy] = int(mask.sum())
