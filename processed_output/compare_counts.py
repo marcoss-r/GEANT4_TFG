@@ -13,13 +13,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # ========== CONFIGURACIÓN ==========
-REFERENCE_DIR_PROTON  = "aplicacion5/output_proton"
-REFERENCE_DIR_NEUTRON = "aplicacion5/output_neutron"
+REFERENCE_DIR_PROTON  = "aplicacion3/output_proton"
+REFERENCE_DIR_NEUTRON = "aplicacion3/output_neutron"
 
-COVERED_DIR_PROTON    = "aplicacion6/output_proton"
-COVERED_DIR_NEUTRON   = "aplicacion6/output_neutron"
+COVERED_DIR_PROTON    = "aplicacion5/output_proton"
+COVERED_DIR_NEUTRON   = "aplicacion5/output_neutron"
 
-OUTPUT_DIR = "aplicacion6/output_plots"
+OUTPUT_DIR = "aplicacion5/output_plots"
 
 COLUMN_NAMES = [
     'EventID',
@@ -106,11 +106,11 @@ def align_and_ratio(ref_counts: dict, cov_counts: dict):
 
 
 # ========== PROCESAMIENTO ==========
-print("Calculando conteos de referencia (aplicacion5)...")
+print("Calculando conteos de referencia (aplicacion3)...")
 ref_proton_counts  = compute_counts_by_energy(REFERENCE_DIR_PROTON)
 ref_neutron_counts = compute_counts_by_energy(REFERENCE_DIR_NEUTRON)
 
-print("Calculando conteos con cobertura (aplicacion6)...")
+print("Calculando conteos con cobertura (aplicacion5)...")
 cov_proton_counts  = compute_counts_by_energy(COVERED_DIR_PROTON)
 cov_neutron_counts = compute_counts_by_energy(COVERED_DIR_NEUTRON)
 
@@ -135,7 +135,7 @@ plt.legend(fontsize=11)
 plt.tight_layout()
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_5_to_6.png")
+output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_3_to_5.png")
 plt.savefig(output_file, dpi=300)
 print(f"\n✓ Gráfica guardada: {output_file}")
 plt.show()

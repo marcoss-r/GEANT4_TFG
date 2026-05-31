@@ -45,7 +45,7 @@ G4VPhysicalVolume* DetConstruction::Construct(){
     //add a aluminum detector
     G4Material *vacuum =G4NistManager::Instance()->FindOrBuildMaterial("G4_Galactic");
 
-    G4Box *solidDetector = new G4Box("solidDetector", 75 * cm, 0.01 * cm,  35 * cm);
+    G4Box *solidDetector = new G4Box("solidDetector", 37.5 * cm, 0.01 * cm,  17.5 * cm);
 
     G4LogicalVolume *logicDetector = new G4LogicalVolume(solidDetector,vacuum,"logicDetector");
 
