@@ -11,12 +11,12 @@ REFERENCE_DIR_NEUTRON = "output_ref/output_neutron"
 REFERENCE_DIR_MUON_P  = "output_ref/output_muon+"
 REFERENCE_DIR_MUON_M  = "output_ref/output_muon-"
 
-COVERED_DIR_PROTON    = "output_50cm/output_proton"
-COVERED_DIR_NEUTRON   = "output_50cm/output_neutron"
-COVERED_DIR_MUON_P    = "output_50cm/output_muon+"
-COVERED_DIR_MUON_M    = "output_50cm/output_muon-"
+COVERED_DIR_PROTON    = "output_80cm/output_proton"
+COVERED_DIR_NEUTRON   = "output_80cm/output_neutron"
+COVERED_DIR_MUON_P    = "output_80cm/output_muon+"
+COVERED_DIR_MUON_M    = "output_80cm/output_muon-"
 
-OUTPUT_DIR = "output_50cm/output_plots"
+OUTPUT_DIR = "output_10cm/output_plots"
 
 # ── Umbral de energía ─────────────────────────────────────
 USE_ENERGY_THRESHOLD = False

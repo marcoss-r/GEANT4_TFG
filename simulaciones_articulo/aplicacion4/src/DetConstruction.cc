@@ -56,7 +56,7 @@ G4VPhysicalVolume* DetConstruction::Construct(){
 
     G4Material *hormigon =G4NistManager::Instance()->FindOrBuildMaterial("G4_CONCRETE");
 
-    G4Box *solidDetector2 = new G4Box("solidDetector2", 4 * m, 80 * cm,  4 * m);
+    G4Box *solidDetector2 = new G4Box("solidDetector2", 4 * m, 10* cm,  4 * m);
 
     G4LogicalVolume *logicDetector2 = new G4LogicalVolume(solidDetector2,hormigon,"logicDetector2");
 
