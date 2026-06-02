@@ -16,7 +16,7 @@ COVERED_DIR_NEUTRON   = "output_80cm/output_neutron"
 COVERED_DIR_MUON_P    = "output_80cm/output_muon+"
 COVERED_DIR_MUON_M    = "output_80cm/output_muon-"
 
-OUTPUT_DIR = "output_10cm/output_plots"
+OUTPUT_DIR = "output_80cm/output_plots"
 
 # ── Umbral de energía ─────────────────────────────────────
 USE_ENERGY_THRESHOLD = False
