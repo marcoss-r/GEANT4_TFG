@@ -1,2 +1,0 @@
-EventID,TrackID,ParentID,ParticleName,Initial_Energy_MeV,PosX_m,PosY_m,PosZ_m,Theta_deg,Phi_deg,MomX,MomY,MomZ,GlobalTime_s,DeltaTime_s
-2286,6323,1,neutron,0.001029,-0.352252,-92.099900,-0.329243,93.678771,-89.067817,0.016235,-0.997807,-0.064163,8513.347507,0.000000

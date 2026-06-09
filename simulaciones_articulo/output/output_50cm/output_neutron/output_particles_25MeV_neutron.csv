@@ -1,2 +1,0 @@
-EventID,ParticleName,Initial_Energy_MeV,Total_Energy_Deposit_MeV,PosX_m,PosY_m,PosZ_m,Theta_deg,Phi_deg,MomX,MomY,MomZ
-220,gamma,0.609431,0.000000,-0.640693,-92.099900,0.009821,69.710673,-112.451370,-0.358204,-0.866860,0.346761

@@ -1,2 +1,0 @@
-EventID,ParticleName,Initial_Energy_MeV,Total_Energy_Deposit_MeV,PosX_m,PosY_m,PosZ_m,Theta_deg,Phi_deg,MomX,MomY,MomZ
-4235,neutron,71.662817,31.410807,1.584451,-92.000000,-1.424907,90.268880,-89.934028,0.001151,-0.999988,-0.004693
