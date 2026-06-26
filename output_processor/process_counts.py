@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 
 PROTON_DIR = "output_proton"
 NEUTRON_DIR = "output_neutron"
-OUTPUT_DIR = "output_plots"
+OUTPUT_DIR = "../../../../GEANT4_TFG/output/processed_output3/aplicacion3/output_plots"
 N_LAUNCHED = 10000
 
 E_MIN = 20       # MeV
@@ -133,12 +133,12 @@ plt.scatter(energies_log, neutron_all[:n_points], label="Haz de neutrones", alph
 
 plt.xscale("log")
 
-plt.xlabel("Energía del haz [MeV]", fontsize=12)
-plt.ylabel("Número de partículas detectadas (E ≥ 20 MeV)", fontsize=12)
-plt.title("Conteo total de partículas detectadas en función de la energía del haz", fontsize=12)
+plt.xlabel("Energía del haz [MeV]", fontsize=16)
+plt.ylabel("Número de partículas detectadas (E ≥ 20 MeV)", fontsize=16)
+plt.title("Conteo total de partículas detectadas en función de la energía del haz", fontsize=18)
 
 plt.grid(True, which="both", ls="--", alpha=0.3)
-plt.legend(fontsize=11)
+plt.legend(fontsize=15)
 
 plt.tight_layout()
 os.makedirs(OUTPUT_DIR, exist_ok=True)
@@ -165,12 +165,12 @@ plt.scatter(energies_log, neutron_specific[:n_points], label="Haz de neutrones",
 
 plt.xscale("log")
 
-plt.xlabel("Energía del haz [MeV]", fontsize=12)
-plt.ylabel("Número de p/n detectados (E ≥ 20 MeV)", fontsize=12)
-plt.title("Conteo de protones y neutrones detectados en función de la energía del haz", fontsize=12)
+plt.xlabel("Energía del haz [MeV]", fontsize=16)
+plt.ylabel("Número de p/n detectados (E ≥ 20 MeV)", fontsize=16)
+plt.title("Conteo de protones y neutrones detectados en función de la energía del haz", fontsize=18)
 
 plt.grid(True, which="both", ls="--", alpha=0.3)
-plt.legend(fontsize=11)
+plt.legend(fontsize=15)
 
 plt.tight_layout()
 output_file2 = os.path.join(OUTPUT_DIR, "plot_proton_neutron_E20MeV.png")

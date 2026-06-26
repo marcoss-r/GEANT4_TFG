@@ -16,10 +16,10 @@ import matplotlib.pyplot as plt
 REFERENCE_DIR_PROTON  = "aplicacion3/output_proton"
 REFERENCE_DIR_NEUTRON = "aplicacion3/output_neutron"
 
-COVERED_DIR_PROTON    = "aplicacion5/output_proton"
-COVERED_DIR_NEUTRON   = "aplicacion5/output_neutron"
+COVERED_DIR_PROTON    = "aplicacion6/output_proton"
+COVERED_DIR_NEUTRON   = "aplicacion6/output_neutron"
 
-OUTPUT_DIR = "aplicacion5/output_plots"
+OUTPUT_DIR = "../../../GEANT4_TFG/output/processed_output3/aplicacion6/output_plots"
 
 COLUMN_NAMES = [
     'EventID',
@@ -110,7 +110,7 @@ print("Calculando conteos de referencia (aplicacion3)...")
 ref_proton_counts  = compute_counts_by_energy(REFERENCE_DIR_PROTON)
 ref_neutron_counts = compute_counts_by_energy(REFERENCE_DIR_NEUTRON)
 
-print("Calculando conteos con cobertura (aplicacion5)...")
+print("Calculando conteos con cobertura (aplicacion6)...")
 cov_proton_counts  = compute_counts_by_energy(COVERED_DIR_PROTON)
 cov_neutron_counts = compute_counts_by_energy(COVERED_DIR_NEUTRON)
 
@@ -127,15 +127,15 @@ plt.scatter(energies_n, ratio_neutron, label="Haz de neutrones", alpha=0.7, s=50
 plt.xscale("log")
 plt.axhline(y=1.0, color='gray', linestyle='--', linewidth=1, alpha=0.5, label='Sin atenuación')
 
-plt.xlabel("Energía del haz [MeV]", fontsize=12)
-plt.ylabel("Proporción de detección (E ≥ 20 MeV)", fontsize=12)
-plt.title("Proporción de conteos debido a la cobertura en función de la energía", fontsize=14)
+plt.xlabel("Energía del haz [MeV]", fontsize=16)
+plt.ylabel("Proporción de detección (E ≥ 20 MeV)", fontsize=16)
+plt.title("Proporción de conteos debido a la cobertura en función de la energía", fontsize=18)
 plt.grid(True, which="both", ls="--", alpha=0.3)
-plt.legend(fontsize=11)
+plt.legend(fontsize=15)
 plt.tight_layout()
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
-output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_3_to_5.png")
+output_file = os.path.join(OUTPUT_DIR, "proportion_attenuation_3_to_6.png")
 plt.savefig(output_file, dpi=300)
 print(f"\n✓ Gráfica guardada: {output_file}")
 plt.show()
