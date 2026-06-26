@@ -1,4 +1,3 @@
-//Instrucciones del compilador para que solo se incluya la cabecera una vez
 /* Instrucciones del compilador para que solo se incluya la cabecera una vez 
 (guardas de C++) */
 #pragma once

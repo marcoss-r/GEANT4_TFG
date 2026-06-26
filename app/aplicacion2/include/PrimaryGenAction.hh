@@ -3,21 +3,20 @@
 #include "G4ios.hh"
 #include "G4SystemOfUnits.hh"
 
-namespace prueba{
+class PrimaryGenAction : public G4VUserPrimaryGeneratorAction {
+    public:
+        PrimaryGenAction();
+        void GeneratePrimaries(G4Event* anEvent) override;
 
-    class PrimaryGenAction : public G4VUserPrimaryGeneratorAction {
-        public:
-          PrimaryGenAction();
-          void GeneratePrimaries(G4Event* anEvent) override;
+        /* Métodos para obtener el nombre y la energía de la partícula 
+        generada */
+        G4String GetParticleName() const;
+        G4double GetParticleEnergy() const;
 
-          //Funciones que obtienen el nombre de la partícula para ponerla en el archivo del tiempo
-          G4String GetParticleName() const;
-          G4double GetParticleEnergy() const;
+    private:
 
-        private:
-          G4ParticleGun* fparticleGun;
-          G4String fparticleName;
-          G4double fparticleEnergy;
-    };
-
-}
+        /* Atributos para almacenar la información de la partícula generada */
+        G4ParticleGun* fparticleGun;
+        G4String fparticleName;
+        G4double fparticleEnergy;
+};
