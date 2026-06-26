@@ -2,14 +2,12 @@
 #include "PrimaryGenAction.hh"
 #include "SteppingAction.hh"
 
-
-namespace prueba {
-
-/*Desde este archivo comienza la inicialización de la acción en la que se definen las acciones del
-usuario, la generación primaria y el stepping*/
+/* Desde este archivo comienza la inicialización de la acción en la que se 
+definen las acciones del usuario, la generación de partículas y el stepping 
+(acciones a ejecutar por cada step) si procede */
 void ActionInit::Build() const{
-    //Build user actions
+    
+    /* Construir acciones del usuario */
     SetUserAction(new PrimaryGenAction());
     SetUserAction(new SteppingAction());
 };
-}
