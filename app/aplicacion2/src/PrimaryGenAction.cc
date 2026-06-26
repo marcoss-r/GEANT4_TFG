@@ -2,7 +2,6 @@
 #include "G4ParticleTable.hh"
 #include "G4SystemOfUnits.hh"
 
-namespace prueba{
 
 /*Aquí se define la generación primaria, primero, con el constructor, definimos la "pistola" que
 lanzará nuestras partículas. Primero creamos la pistola, definimos qué partícula usamos, definimos
@@ -37,4 +36,4 @@ G4double PrimaryGenAction::GetParticleEnergy() const{
 }
 
 
-}
+
