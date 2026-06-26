@@ -18,61 +18,45 @@ DetConstruction::~DetConstruction(){
 }
 
 
+/* Método para construir el mundo de simulación a partir de una geometría
+GDML exportada desde FreeCAD. El propio GDML ya incluye los materiales
+G4_AIR, G4_CONCRETE y G4_Al */
 G4VPhysicalVolume* DetConstruction::Construct() {
 
-    // -------------------------------
-    // 1. Definir materiales (si necesitas adicionales)
-    // -------------------------------
-    // El GDML ya incluye G4_AIR, G4_CONCRETE, G4_Al
-    // Solo añade si necesitas otros materiales personalizados
-    
-    // -------------------------------
-    // 2. Leer GDML exportado desde FreeCAD
-    // -------------------------------
+    /* Lectura del archivo GDML exportado desde FreeCAD */
     G4GDMLParser parser;
     parser.Read("../geometries/casav1-worldVOL.gdml");
-    
+
     G4cout << "GDML loaded: ../geometries/casav1-worldVOL.gdml" << G4endl;
-    
-    // -------------------------------
-    // 3. Obtener World
-    // -------------------------------
+
+    /* Obtención del volumen mundo */
     G4VPhysicalVolume* world = parser.GetWorldVolume();
-    
+
     return world;
 }
 
 
-
+/* Método para registrar y asignar el detector sensible */
 void DetConstruction::ConstructSDandField(){
-    
-    // -------------------------------
-    // 1. Crear el Sensitive Detector
-    // -------------------------------
-    SensitiveDetector* sensitiveDetector = new SensitiveDetector("SensitiveDetector");
-    
-    // -------------------------------
-    // 2. Registrarlo en el SDManager
-    // -------------------------------
+
+    /* Creación del detector sensible */
+    SensitiveDetector* sensitiveDetector =
+            new SensitiveDetector("SensitiveDetector");
+
+    /* Registro en el SDManager */
     G4SDManager::GetSDMpointer()->AddNewDetector(sensitiveDetector);
-    
-    // -------------------------------
-    // 3. Buscar el volumen lógico del GDML
-    // -------------------------------
-    // El nombre del volumen lógico en tu GDML es "physDetector"
+
+    /* Búsqueda del volumen lógico definido en el GDML */
     G4LogicalVolumeStore* lvStore = G4LogicalVolumeStore::GetInstance();
     G4LogicalVolume* detectorLV = lvStore->GetVolume("physDetector");
-    //                                                 ^^^^^^^^^^^^
-    //                                                 Nombre del <volume> en el GDML
-    
-    // -------------------------------
-    // 4. Verificar que se encontró y asignar
-    // -------------------------------
+
+    /* Verificación y asignación del detector sensible */
     if (detectorLV) {
         detectorLV->SetSensitiveDetector(sensitiveDetector);
-        G4cout << "Sensitive Detector assigned to 'physDetector'" << G4endl;
+        G4cout << "Sensitive Detector assigned to 'physDetector'"
+               << G4endl;
     } else {
-        G4cerr << "ERROR: Logical volume 'physDetector' not found in GDML!" << G4endl;
+        G4cerr << "ERROR: Logical volume 'physDetector' not found!"
+               << G4endl;
     }
 }
-

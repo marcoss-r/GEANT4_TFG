@@ -6,42 +6,34 @@
 #include "G4LogicalVolume.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4NistManager.hh"
-//Ignorar errores de geometría de GDML
 #include "G4GDMLParser.hh"
 
 
-namespace prueba{
-
+/* Método para construir el mundo de simulación a partir de una geometría
+GDML exportada desde FreeCAD */
 G4VPhysicalVolume* DetConstruction::Construct() {
 
-    // -------------------------------
-    // 1. Definir materiales
-    // -------------------------------
-    // Aire para el World (material NIST)
-    G4Material* air = G4NistManager::Instance()->FindOrBuildMaterial("G4_AIR");
+    /* Definición de materiales */
 
-    // Plomo
+    /* Aire para el world (material NIST) */
+    G4Material* air =
+            G4NistManager::Instance()->FindOrBuildMaterial("G4_AIR");
+
+    /* Plomo */
     G4Element* elPb = new G4Element("Lead","Pb", 82., 207.2*g/mole);
     G4Material* Pb = new G4Material("Lead", 11.34*g/cm3, 1);
     Pb->AddElement(elPb, 1);
 
-    // Hormigón (usado en el edificio exportado desde FreeCAD)
-    G4Material* concrete = G4NistManager::Instance()->FindOrBuildMaterial("G4_CONCRETE");
+    /* Hormigón (usado en el edificio exportado desde FreeCAD) */
+    G4Material* concrete =
+            G4NistManager::Instance()->FindOrBuildMaterial("G4_CONCRETE");
 
-    // -------------------------------
-    // 2. Leer GDML exportado desde FreeCAD
-    // -------------------------------
+    /* Lectura del archivo GDML exportado desde FreeCAD */
     G4GDMLParser parser;
-    parser.Read("../geometry/v4_15pinzas-worldVOL.gdml"); // ruta relativa dentro del proyecto
+    parser.Read("../geometry/v4_15pinzas-worldVOL.gdml");
 
-    // -------------------------------
-    // 3. Obtener World
-    // -------------------------------
+    /* Obtención del volumen mundo */
     G4VPhysicalVolume* world = parser.GetWorldVolume();
 
     return world;
-
-
-    }
-
 }

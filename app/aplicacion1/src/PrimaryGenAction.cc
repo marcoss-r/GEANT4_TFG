@@ -9,7 +9,8 @@ partículas, su energía y por último la posición inicial */
 
 PrimaryGenAction::PrimaryGenAction(){
     fparticleGun = new G4ParticleGun();
-    fparticleGun->SetParticleDefinition(G4ParticleTable::GetParticleTable()->FindParticle("e-"));
+    fparticleGun->SetParticleDefinition(
+            G4ParticleTable::GetParticleTable()->FindParticle("e-"));
     fparticleGun->SetParticleMomentumDirection(G4ThreeVector(0, -1, 0));
     fparticleGun->SetParticleEnergy(200*MeV);
     fparticleGun->SetParticlePosition(G4ThreeVector(0,2.3*m,0));

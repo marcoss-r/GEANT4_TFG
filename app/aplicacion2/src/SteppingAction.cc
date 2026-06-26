@@ -2,13 +2,11 @@
 #include "G4Step.hh"
 #include "G4ios.hh"
 
-namespace prueba{
+/* Esta clase sirve para definir un método que se ejecuta en cada paso de
+la simulación, en concreto en el interior de un volumen físico */
+void SteppingAction::UserSteppingAction(const G4Step *aStep ){
+    if (aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName() ==
+            "physDetector"){
 
-/*En GEANT4, las partículas obviamente no siguen un continuo, sino que van por unos ciertos pasos.
-Con esta clase, podemos definir un método de la clase */    
-    void SteppingAction::UserSteppingAction(const G4Step *aStep ){
-        if (aStep->GetPreStepPoint()->GetPhysicalVolume()->GetName() == "physDetector"){
-           
-        }
     }
 }
